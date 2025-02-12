@@ -3,149 +3,155 @@ layout: archive
 title: "Projects"
 permalink: /projects/
 author_profile: true
-published: false
+published: true
 ---
 
 # My Projects
 
-Welcome to my projects page! Here, you'll find a collection of both past and ongoing projects that I've worked on, showcasing my skills and experience in computer science.
+Welcome to my projects page! Here, you'll find a collection of both past and ongoing projects that I've worked on.
 
 ---
 
-## 1. **Personal Portfolio Website**
+## 1. **Bystander Privacy**
 
 **Description:**  
-A personal website to showcase my work, blog posts, and contact details. Built with HTML, CSS, and JavaScript, the website is fully responsive and designed to be user-friendly.
-
-**Technologies Used:**  
-- HTML, CSS, JavaScript
-- Bootstrap (for responsive design)
-- GitHub Pages for deployment
-
-**Project Status:**  
-- Completed
-
-**Link:**  
-[View Project](https://github.com/yourusername/portfolio)
-
----
-
-## 2. **Machine Learning Model for Predictive Analysis**
-
-**Description:**  
-A machine learning model that predicts housing prices based on various features such as location, number of rooms, and amenities. The model uses Scikit-Learn and a regression algorithm.
+Working on a system to allow for bystander privacy.
 
 **Technologies Used:**  
 - Python
-- Scikit-Learn
-- Pandas, NumPy
-- Jupyter Notebooks for experimentation
 
 **Project Status:**  
-- Completed
+- In Progress
 
-**Link:**  
-[View on GitHub](https://github.com/yourusername/house-price-prediction)
+<!-- **Link:**  
+[View Project](https://github.com/yourusername/portfolio) -->
 
 ---
 
-## 3. **Online Coding Platform (Current)**
+## 2. **Amazon Alexa Privacy**
 
 **Description:**  
-Currently developing an online platform for competitive programming where users can solve coding challenges and compete with each other. The platform includes a real-time code editor, problem sets, and leaderboards.
+Analyzing the ad eco system of the Amazon Alexa devices.
+
+**Technologies Used:**  
+- Python
+
+**Project Status:**  
+- In Progress
+
+<!-- **Link:**  
+[View on GitHub](https://github.com/yourusername/house-price-prediction) -->
+
+---
+
+## 3. **VBIT: Visualizing and Blocking of IoT Trackers**
+
+**Description:**  
+An interactive system that combines Mixed Reality (MR) and web-based applications to help users identify and manage data collection by Internet of Things (IoT) devices in shared spaces. By analyzing network traffic, VBIT enables users to visualize tracking services and take action to stop or limit unwanted data collection, offering transparency and control over IoT privacy.
 
 **Technologies Used:**  
 - Python (Flask)
-- JavaScript (React)
-- MongoDB (for storing user data and challenges)
-- Docker (for containerization)
+- JavaScript/CSS
+- SQLite (for storing user data and challenges)
 
 **Project Status:**  
 - In Progress (currently working on adding more features and testing)
 
 **Link:**  
-[Project Repo](https://github.com/yourusername/online-coding-platform)
+[Paper](https://www.arxiv.org/pdf/2409.06233)
 
 ---
 
-## 4. **Chat Application with Real-Time Messaging**
+## 4. **ML Model to Detect Access Points in the Wild**
 
 **Description:**  
-A real-time chat application that allows users to create chat rooms, send direct messages, and share media. Built with Node.js, Express, and WebSockets for real-time communication.
+I worked on training a ML model to detect Cisco Access Points in the wild.
 
-**Technologies Used:**  
-- Node.js
-- Express
-- WebSockets (Socket.io)
-- MongoDB (for storing messages)
+**Technologies Used/Needed:**  
+- YOLO/CNNs
+- Python
 
 **Project Status:**  
 - Completed
 
-**Link:**  
-[View on GitHub](https://github.com/yourusername/chat-application)
+**Location**
+- Cisco Internship (2023)
+
+<!-- **Link:**  
+[View on GitHub](https://github.com/yourusername/chat-application) -->
 
 ---
 
-## 5. **Task Management App (Current)**
+## 5. **Decoding Light-Based Messages**
 
 **Description:**  
-A task management application where users can add, update, and delete tasks, set deadlines, and track progress. Built with React on the frontend and Firebase on the backend.
+I worked on a project that use real time video to detect a message that is being transmitted by a blinking LED light source.
 
-**Technologies Used:**  
-- React
-- Firebase (for authentication and data storage)
-- CSS for styling
-
-**Project Status:**  
-- In Progress (Currently adding more features like notifications)
-
-**Link:**  
-[GitHub Repo](https://github.com/yourusername/task-manager)
-
----
-
-## 6. **Data Visualization Dashboard**
-
-**Description:**  
-A web-based dashboard that visualizes various datasets like COVID-19 statistics, stock market data, and weather reports. Built using D3.js and integrated with APIs for live data fetching.
-
-**Technologies Used:**  
-- JavaScript (D3.js)
-- HTML/CSS
-- APIs (COVID-19 API, Stock APIs)
+**Technologies Used/Needed:**  
+- Opencv.js
+- Javascript
+- Computer vision
 
 **Project Status:**  
 - Completed
 
+**Location**
+- Cisco Internship (2021, 2022)
+
 **Link:**  
-[View Project](https://github.com/yourusername/data-visualization-dashboard)
+[US Patent](https://patents.google.com/patent/US11935299B2/en)
 
 ---
 
-## 7. **Algorithm Visualizer**
+## 6. **Cisco Wireless 3D Analyzer**
 
 **Description:**  
-A tool that visually demonstrates common algorithms such as sorting algorithms, pathfinding algorithms, and search algorithms. Helps students and developers understand how algorithms work in real-time.
+I worked on a project to create 3D wireless heat-maps.
+
+**Technologies Used:**
+- Javascript
+- Three.js
+- GLSL shaders
+- GPGPU
+
+**Project Status:**
+- Completed
+
+**Location**
+- Cisco Internship (2020)
+
+**Link:** 
+[View Sample of Project](https://blogs.cisco.com/tag/cisco-wireless-3d-analyzer)
+
+---
+
+## 7. **Virtual Knowledge Graph (VKG) to Database**
+
+**Description:**  
+I worked on extending an open source Ontology-based Data Access (OBDA) system, Ontop, to support multiple types of databases simultaneously. The added database was a graph based one called Gremlin.
 
 **Technologies Used:**  
-- JavaScript
-- HTML5 Canvas for drawing the algorithm steps
-- CSS
+- Java
+- Gremlin
+- SQL
+- SPARQL
 
 **Project Status:**  
 - Completed
 
-**Link:**  
-[View on GitHub](https://github.com/yourusername/algorithm-visualizer)
+**Location**
+- Cisco Internship (2019-2020)
+
+<!-- **Link:**
+[View on GitHub](https://github.com/yourusername/algorithm-visualizer) -->
 
 ---
 
-## Contact Me
+<!-- ## Contact Me
 
 If you have any questions or would like to collaborate on a project, feel free to reach out to me via [email](mailto:youremail@example.com) or [LinkedIn](https://www.linkedin.com/in/yourprofile/).
 
 ---
 
-Thank you for checking out my projects!
+Thank you for checking out my projects! -->
 

@@ -8,13 +8,26 @@ redirect_from:
 ---
 
 Biography
-======
+------
 I am a fifth-year PhD student in the [EECS department](https://engineering.uci.edu/dept/eecs) at the University of California, Irvine, advised by Prof. [Athina Markopoulou](https://athinagroup.eng.uci.edu/athina/). I received my B.E. degree in Computer and Communications Engineering from American University of Beirut in 2020 and my M.Sc. degree in Electrical Engineering from University of California, Irvine in 2023.
 
 My research interests are in the areas of internet of things, privacy, and network measurements. 
 
+Work Experience
+------
+* Software Engineer PhD Intern, <img src="//logotyp.us/file/cisco.svg" alt="Cisco"/><a href="//logotyp.us/logo/cisco">Cisco Systems</a>, San Jose, CA Jun 2023 – Sep 2023
+* Software Engineer PhD Intern, <img src="//logotyp.us/file/cisco.svg" alt="Cisco"/><a href="//logotyp.us/logo/cisco">Cisco Systems</a>, San Jose, CA Jun 2022 – Sep 2022
+* Software Engineer PhD Intern, <img src="//logotyp.us/file/cisco.svg" alt="Cisco"/><a href="//logotyp.us/logo/cisco">Cisco Systems</a>, San Jose, CA Jun 2021 – Sep 2021
+* Software Engineer Intern, <img src="//logotyp.us/file/cisco.svg" alt="Cisco"/><a href="//logotyp.us/logo/cisco">Cisco Systems</a>, Beirut, Lebanon, July 2019 - September 2020
+
+Teaching Experience
+------
+* Teacher Assistant
+  * Class: Organization of Digital Computers Laboratory
+  * Oct 2022 – Dec 2022 and Jan 2022 – Mar 2022
+
 Education
-======
+------
 
 * **University of California, Irvine, 09/2020 - Present**
   * Degree: PhD
