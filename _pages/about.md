@@ -15,10 +15,10 @@ My research interests are in the areas of internet of things, privacy, and netwo
 
 Work Experience
 ------
-* Software Engineer PhD Intern, <img src="//logotyp.us/file/cisco.svg" alt="Cisco" style="width: 1em; vertical-align: middle;"/><a href="//logotyp.us/logo/cisco">Cisco Systems</a>, San Jose, CA Jun 2023 – Sep 2023
-* Software Engineer PhD Intern, <img src="//logotyp.us/file/cisco.svg" alt="Cisco" style="width: 1em; vertical-align: middle;"/><a href="//logotyp.us/logo/cisco">Cisco Systems</a>, San Jose, CA Jun 2022 – Sep 2022
-* Software Engineer PhD Intern, <img src="//logotyp.us/file/cisco.svg" alt="Cisco" style="width: 1em; vertical-align: middle;"/><a href="//logotyp.us/logo/cisco">Cisco Systems</a>, San Jose, CA Jun 2021 – Sep 2021
-* Software Engineer Intern, <img src="//logotyp.us/file/cisco.svg" alt="Cisco" style="width: 1em; vertical-align: middle;"/><a href="//logotyp.us/logo/cisco">Cisco Systems</a>, Beirut, Lebanon, July 2019 - September 2020
+* Software Engineer PhD Intern, <img src="//logotyp.us/file/cisco.svg" alt="Cisco" style="width: 1em; vertical-align: middle;"/> Cisco Systems, San Jose, CA Jun 2023 – Sep 2023
+* Software Engineer PhD Intern, <img src="//logotyp.us/file/cisco.svg" alt="Cisco" style="width: 1em; vertical-align: middle;"/> Cisco Systems, San Jose, CA Jun 2022 – Sep 2022
+* Software Engineer PhD Intern, <img src="//logotyp.us/file/cisco.svg" alt="Cisco" style="width: 1em; vertical-align: middle;"/> Cisco Systems, San Jose, CA Jun 2021 – Sep 2021
+* Software Engineer Intern, <img src="//logotyp.us/file/cisco.svg" alt="Cisco" style="width: 1em; vertical-align: middle;"/> Cisco Systems, Beirut, Lebanon, July 2019 - September 2020
 
 Teaching Experience
 ------
