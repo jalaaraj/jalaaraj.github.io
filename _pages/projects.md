@@ -6,8 +6,6 @@ author_profile: true
 published: true
 ---
 
-# My Projects
-
 Welcome to my projects page! Here, you'll find a collection of both past and ongoing projects that I've worked on.
 
 ---
@@ -120,7 +118,7 @@ I worked on a project to create 3D wireless heat-maps.
 **Location**
 - Cisco Internship (2020)
 
-**Link:** 
+**Link:**  
 [View Sample of Project](https://blogs.cisco.com/tag/cisco-wireless-3d-analyzer)
 
 ---

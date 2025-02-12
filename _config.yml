@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "Jad's Home Page'"
+title                    : "Jad's Home Page"
 title_separator          : "-"
 name                     : &name "Jad Al Aaraj"
 description              : &description "PhD Candidate @UCI"
