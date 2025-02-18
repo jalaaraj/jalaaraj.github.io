@@ -11,7 +11,7 @@ Biography
 ------
 I am a PhD candidate in the [EECS department](https://engineering.uci.edu/dept/eecs) at the University of California, Irvine, advised by Prof. [Athina Markopoulou](https://athinagroup.eng.uci.edu/athina/). I received my B.E. degree in Computer and Communications Engineering from American University of Beirut in 2020 and my M.Sc. degree in Electrical Engineering from University of California, Irvine in 2023.
 
-My research interests are in the areas of internet of things, privacy, and network measurements. 
+My research interests are in the areas of Internet-of-Things, privacy, and network measurements. 
 
 Work Experience
 ------
@@ -24,14 +24,14 @@ Work Experience
 Teaching Experience
 ------
 * Teacher Assistant
-  * Class: Organization of Digital Computers Laboratory
+  * Class: Organization of Digital Computers Laboratory (EECS 112L)
   * Oct 2022 – Dec 2022 and Jan 2022 – Mar 2022
 
 Education
 ------
 
 * **University of California, Irvine, 09/2020 - Present**
-  * Degree: PhD
+  * Degree: PhD (Expected June 2026)
   * Major: Electrical and Computer Engineering with a Concentration in Computer Engineering (CE)
   <!-- * GPA: 4.0/4.0 -->
 
