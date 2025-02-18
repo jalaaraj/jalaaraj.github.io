@@ -56,7 +56,7 @@ An interactive system that combines Mixed Reality (MR) and web-based application
 - In Progress (currently working on adding more features and testing)
 
 **Link:**  
-[Paper](https://www.arxiv.org/pdf/2409.06233)
+[arXiv](https://www.arxiv.org/pdf/2409.06233), [Project Page](https://athinagroup.eng.uci.edu/iot-tracking/)
 
 ---
 
