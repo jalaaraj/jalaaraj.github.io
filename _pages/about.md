@@ -23,7 +23,7 @@ Work Experience
 
 Teaching Experience
 ------
-* Teacher Assistant
+* Teaching Assistant
   * Class: Organization of Digital Computers Laboratory (EECS 112L)
   * Oct 2022 – Dec 2022 and Jan 2022 – Mar 2022
 
@@ -36,7 +36,7 @@ Education
   <!-- * GPA: 4.0/4.0 -->
 
 * **University of California, Irvine, 09/2020 - 06/2023**
-  * Degree: Master's
+  * Degree: Master of Science
   * Major: Electrical and Computer Engineering with a Concentration in Computer Engineering (CE)
   <!-- * GPA: 3.71/4.0 -->
 
