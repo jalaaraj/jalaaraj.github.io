@@ -8,9 +8,9 @@ author_profile: true
 
 Work In Progress
 ------
-**Jad Al Aaraj**, Athina Markopoulou - Towards Opt-in Bystander Privacy on Camera-Enabled Devices
+**Jad Al Aaraj** and Athina Markopoulou - Towards Opt-in Bystander Privacy on Camera-Enabled Devices
 
-Conferences
+Published
 ------
 **Jad Al Aaraj** and Athina Markopoulou - <a href="https://doi.org/10.1145/3704413.3765296" target="_blank">BystandARIA: Enabling AR Bystander Privacy using LEDs.</a> In The Twenty-sixth International Symposium on Theory, Algorithmic Foundations, and Protocol Design for Mobile Networks and Mobile Computing (MobiHoc ’25), October 27–30, 2025, Houston, TX, USA. ACM, New York, NY, USA.
 
