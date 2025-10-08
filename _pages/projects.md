@@ -10,23 +10,40 @@ Welcome to my projects page! Here, you'll find a collection of both past and ong
 
 ---
 
-## 1. **Bystander Privacy**
+
+## **SIDE PROJECT: LLM-Powered Network Privacy Auditor**
 
 **Description:**  
-Working on a system to allow for bystander privacy.
+A proof-of-concept for a tool that translates raw network traffic logs (e.g., DNS queries, connection logs) into human-readable privacy reports. The system uses an LLM, backed by a knowledge base of known tracking domains and network protocols, to identify and explain potential data leaks or surveillance activities in a network's device communication.
 
-**Technologies Used:**  
-- Python
+**Technologies Used:** 
+- Python, LlamaIndex, LangChain, LangGraph
 
 **Project Status:**  
-- In Progress
+- Conceptual / In Progress
 
 <!-- **Link:**  
 [View Project](https://github.com/yourusername/portfolio) -->
 
 ---
 
-## 2. **Amazon Alexa Privacy**
+## **Bystander Privacy**
+
+**Description:**  
+Working on a system to allow for bystander privacy.
+
+**Technologies Used:**  
+- Kotlin, Android Development, OpenGL, Python
+
+**Project Status:**  
+- In Progress, a short paper accepted at ACM MobiHoc'25
+
+<!-- **Link:**  
+[View Project](https://github.com/yourusername/portfolio) -->
+
+---
+
+## **Amazon Alexa Privacy**
 
 **Description:**  
 Analyzing the ad eco system of the Amazon Alexa devices.
@@ -42,7 +59,7 @@ Analyzing the ad eco system of the Amazon Alexa devices.
 
 ---
 
-## 3. **VBIT: Visualizing and Blocking of IoT Trackers**
+## **VBIT: Visualizing and Blocking of IoT Trackers**
 
 **Description:**  
 An interactive system that combines Mixed Reality (MR) and web-based applications to help users identify and manage data collection by Internet of Things (IoT) devices in shared spaces. By analyzing network traffic, VBIT enables users to visualize tracking services and take action to stop or limit unwanted data collection, offering transparency and control over IoT privacy.
@@ -53,14 +70,14 @@ An interactive system that combines Mixed Reality (MR) and web-based application
 - SQLite (for storing user data and challenges)
 
 **Project Status:**  
-- In Progress (currently working on adding more features and testing)
+- Under Review at ACM TIOT Journal
 
 **Link:**  
 [arXiv](https://www.arxiv.org/pdf/2409.06233), [Project Page](https://athinagroup.eng.uci.edu/iot-tracking/)
 
 ---
 
-## 4. **ML Model to Detect Access Points in the Wild**
+## **ML Model to Detect Access Points in the Wild**
 
 **Description:**  
 I worked on training a ML model to detect Cisco Access Points in the wild.
@@ -80,7 +97,7 @@ I worked on training a ML model to detect Cisco Access Points in the wild.
 
 ---
 
-## 5. **Decoding Light-Based Messages**
+## **Decoding Light-Based Messages**
 
 **Description:**  
 I worked on a project that use real time video to detect a message that is being transmitted by a blinking LED light source.
@@ -101,7 +118,7 @@ I worked on a project that use real time video to detect a message that is being
 
 ---
 
-## 6. **Cisco Wireless 3D Analyzer**
+## **Cisco Wireless 3D Analyzer**
 
 **Description:**  
 I worked on a project to create 3D wireless heat-maps.
@@ -123,7 +140,7 @@ I worked on a project to create 3D wireless heat-maps.
 
 ---
 
-## 7. **Virtual Knowledge Graph (VKG) to Database**
+## **Virtual Knowledge Graph (VKG) to Database**
 
 **Description:**  
 I worked on extending an open source Ontology-based Data Access (OBDA) system, Ontop, to support multiple types of databases simultaneously. The added database was a graph based one called Gremlin.
