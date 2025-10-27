@@ -30,8 +30,8 @@ Teaching Experience
 Education
 ------
 
-* **University of California, Irvine, Present**
-  * Degree: PhD (Expected June, 2026)
+* **University of California, Irvine, Present (Expected June, 2026)**
+  * Degree: PhD
   * Major: Electrical and Computer Engineering with a Concentration in Computer Engineering (CE)
   <!-- * GPA: 4.0/4.0 -->
 
