@@ -30,17 +30,17 @@ Teaching Experience
 Education
 ------
 
-* **University of California, Irvine, 09/2020 - Present**
-  * Degree: PhD (Expected June 2026)
+* **University of California, Irvine, Present**
+  * Degree: PhD (Expected June, 2026)
   * Major: Electrical and Computer Engineering with a Concentration in Computer Engineering (CE)
   <!-- * GPA: 4.0/4.0 -->
 
-* **University of California, Irvine, 09/2020 - 06/2023**
+* **University of California, Irvine, June, 2023**
   * Degree: Master of Science
   * Major: Electrical and Computer Engineering with a Concentration in Computer Engineering (CE)
   <!-- * GPA: 3.71/4.0 -->
 
-* **American University of Beirut, 08/2016 - 06/2020**
+* **American University of Beirut, June, 2020**
   * Degree: Bachelor of Engineering
   * Major: Computer and Communications Engineering
   <!-- * GPA: 93/100 -->
