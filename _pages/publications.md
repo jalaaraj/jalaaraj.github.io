@@ -8,7 +8,7 @@ author_profile: true
 
 Work In Progress
 ------
-**Jad Al Aaraj** and Athina Markopoulou - Towards Opt-in Bystander Privacy on Camera-Enabled Devices
+**Jad Al Aaraj** and Athina Markopoulou - Towards Opt-in Bystander Privacy on Camera-Enabled Devices (submitting to Mobisys'26)
 
 Published
 ------
