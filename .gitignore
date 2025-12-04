@@ -11,3 +11,21 @@ Gemfile.lock
 # Ingore files created by npm
 node_modules
 package-lock.json
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VSCode settings
+.vscode/
+.vscode/*
+
+# Other editor/IDE files
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Other system files
+Thumbs.db
+Desktop.ini
