@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jad Al Aaraj - PhD Candidate @ UCI</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50' y='55' font-size='40' text-anchor='middle' dominant-baseline='middle' fill='white' font-family='system-ui,sans-serif' font-weight='700'>JA</text></svg>">
     <!-- Cloudflare Web Analytics -->
      <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8427d2a3ff0b43509bf596e31ed32ac5"}'></script>
      <!-- End Cloudflare Web Analytics -->
@@ -13,29 +15,31 @@
         html {
             scroll-behavior: smooth;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #f8f9fa;
+            color: #334155;
+            background: #f8fafc;
         }
-        
+
+        /* ===== NAVBAR ===== */
         .navbar {
-            background: #3c5f81;
-            padding: 1rem 0;
+            background: #0f172a;
+            padding: 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            border-bottom: 2px solid #6366f1;
         }
-        
+
         .nav-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -44,396 +48,715 @@
             align-items: center;
             padding: 0 2rem;
         }
-        
+
         .nav-brand {
             color: white;
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.3rem;
+            font-weight: 700;
             text-decoration: none;
+            padding: 1rem 0;
+            letter-spacing: -0.02em;
         }
-        
+
+        .nav-brand span {
+            color: #818cf8;
+        }
+
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 0;
             list-style: none;
         }
-        
+
         .nav-links a {
-            color: white;
+            color: #94a3b8;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s;
             font-weight: 500;
+            font-size: 0.9rem;
+            padding: 1.15rem 1.2rem;
+            display: block;
+            position: relative;
         }
-        
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #818cf8;
+            transition: width 0.3s;
+        }
+
         .nav-links a:hover {
-            color: #3498db;
+            color: #e2e8f0;
+            background: rgba(255,255,255,0.04);
         }
-        
+
+        .nav-links a:hover::after {
+            width: 60%;
+        }
+
+        /* ===== HERO ===== */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #4ba288 100%);
+            background: linear-gradient(135deg, #283548 0%, #1a2438 50%, #282358 100%);
             color: white;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem 4rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99,102,241,0.12), transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(16,185,129,0.08), transparent 70%);
+            pointer-events: none;
+        }
+
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
-        
+
+        .hero-label {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(99,102,241,0.15);
+            border: 1px solid rgba(99,102,241,0.3);
+            border-radius: 50px;
+            color: #a5b4fc;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+        }
+
         .hero h1 {
-            font-size: 3rem;
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 3.2rem;
             margin-bottom: 1rem;
             animation: fadeInUp 0.8s ease;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
-        
+
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            opacity: 0.95;
+            font-size: 1.15rem;
+            margin-bottom: 0.3rem;
+            opacity: 0.85;
             animation: fadeInUp 1s ease;
+            font-weight: 300;
         }
 
         .hero-buttons {
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
             justify-content: center;
             flex-wrap: wrap;
         }
-        
+
         .btn {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background: white;
-            color: #667eea;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.8rem;
+            background: #6366f1;
+            color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 0.9rem;
+            transition: all 0.3s;
             animation: fadeInUp 1.2s ease;
         }
-        
+
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(99,102,241,0.35);
+            background: #4f46e5;
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 2px solid white;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border-color: rgba(255,255,255,0.35);
         }
-        
+
+        /* ===== LAYOUT ===== */
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 0 2rem;
         }
-        
+
         .section {
-            margin-bottom: 4rem;
+            padding: 5rem 0;
         }
-        
+
+        .section-alt {
+            background: #f1f5f9;
+        }
+
         .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 0.5rem;
-            display: inline-block;
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
-        
+
+        .section-subtitle {
+            color: #64748b;
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .section-divider {
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #6366f1, #10b981);
+            border-radius: 2px;
+            margin-bottom: 2.5rem;
+        }
+
+        /* ===== ABOUT ===== */
         .about-grid {
             display: grid;
-            grid-template-columns: 200px 1fr;
+            grid-template-columns: 220px 1fr;
             gap: 3rem;
             align-items: start;
         }
-        
-        .profile-img {
+
+        .profile-img-wrapper {
+            position: relative;
+        }
+
+        .profile-img-wrapper img {
             width: 200px;
             height: 200px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 4rem;
-            font-weight: 600;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            object-fit: cover;
         }
-        
+
+        .profile-img-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 200px;
+            height: 200px;
+            border-radius: 16px;
+            border: 2px solid #6366f1;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
         .about-text {
             background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 8px 30px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
         }
-        
+
+        .about-text p {
+            color: #475569;
+            line-height: 1.8;
+        }
+
+        .about-text a {
+            color: #6366f1;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .about-text a:hover {
+            border-bottom-color: #6366f1;
+        }
+
+        .graduation-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #ede9fe, #e0e7ff);
+            color: #4338ca;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid #c7d2fe;
+        }
+
         .research-interests {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.6rem;
             margin-top: 1rem;
         }
-        
+
         .tag {
-            background: #e8f4f8;
-            color: #2980b9;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            padding: 0.45rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
             font-weight: 500;
+            transition: transform 0.2s;
         }
-        
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+
+        .tag:hover {
+            transform: translateY(-1px);
         }
-        
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+
+        .tag-indigo {
+            background: #eef2ff;
+            color: #4338ca;
+            border: 1px solid #c7d2fe;
         }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+
+        .tag-emerald {
+            background: #ecfdf5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
         }
-        
-        .card h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+
+        .tag-amber {
+            background: #fffbeb;
+            color: #92400e;
+            border: 1px solid #fde68a;
         }
-        
-        .card p {
-            color: #666;
-            margin-bottom: 1rem;
+
+        .tag-rose {
+            background: #fff1f2;
+            color: #9f1239;
+            border: 1px solid #fecdd3;
         }
-        
-        .card-meta {
-            color: #999;
-            font-size: 0.9rem;
-            font-style: italic;
+
+        .tag-sky {
+            background: #f0f9ff;
+            color: #0c4a6e;
+            border: 1px solid #bae6fd;
         }
-        
+
+        .tag-violet {
+            background: #f5f3ff;
+            color: #5b21b6;
+            border: 1px solid #ddd6fe;
+        }
+
+        /* ===== PUBLICATIONS ===== */
+        .pub-category {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.4rem;
+            color: #1e293b;
+            margin: 2.5rem 0 1.5rem 0;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .pub-category-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .pub-category-icon.papers { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+        .pub-category-icon.patents { background: linear-gradient(135deg, #10b981, #059669); }
+
         .publication {
             background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border-left: 4px solid #3498db;
+            padding: 1.8rem;
+            border-radius: 12px;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #6366f1;
+            transition: all 0.3s;
+        }
+
+        .publication:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-left-color: #4f46e5;
         }
 
         .publication.wip {
-            border-left-color: #f39c12;
+            border-left-color: #f59e0b;
+        }
+
+        .publication.wip:hover {
+            border-left-color: #d97706;
         }
 
         .publication.patent {
-            border-left-color: #27ae60;
+            border-left-color: #10b981;
         }
-        
+
+        .publication.patent:hover {
+            border-left-color: #059669;
+        }
+
         .publication h4 {
-            color: #2c3e50;
+            color: #1e293b;
             margin-bottom: 0.5rem;
-            line-height: 1.4;
+            line-height: 1.5;
+            font-size: 1.05rem;
         }
 
         .publication h4 a {
-            color: #2c3e50;
+            color: #1e293b;
             text-decoration: none;
+            transition: color 0.3s;
         }
 
         .publication h4 a:hover {
-            color: #3498db;
+            color: #6366f1;
         }
-        
+
         .publication-authors {
-            color: #666;
-            margin-bottom: 0.5rem;
+            color: #64748b;
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
         }
 
         .publication-authors strong {
-            color: #2c3e50;
+            color: #1e293b;
+            font-weight: 600;
         }
-        
+
         .publication-venue {
-            color: #3498db;
+            color: #6366f1;
             font-weight: 600;
             margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .publication-desc {
+            color: #64748b;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-top: 0.5rem;
         }
 
         .publication-links {
-            margin-top: 0.8rem;
+            margin-top: 1rem;
             display: flex;
-            gap: 1rem;
+            gap: 0.6rem;
             flex-wrap: wrap;
         }
 
         .publication-links a {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
             padding: 0.4rem 1rem;
-            background: #3498db;
-            color: white;
+            background: #f1f5f9;
+            color: #475569;
             text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            transition: background 0.3s;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
         }
 
         .publication-links a:hover {
-            background: #2980b9;
+            background: #6366f1;
+            color: white;
+            border-color: #6366f1;
         }
 
         .badge {
             display: inline-block;
-            padding: 0.3rem 0.8rem;
-            background: #f39c12;
-            color: white;
-            border-radius: 4px;
-            font-size: 0.8rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
         }
 
-        .badge.patent {
-            background: #27ae60;
+        .badge-review {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fde68a;
         }
-        
-        .contact-info {
+
+        .badge-patent {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+
+        /* ===== EXPERIENCE ===== */
+        .experience-item {
             background: white;
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+            position: relative;
+            transition: all 0.3s;
         }
-        
+
+        .experience-item:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .experience-item h4 {
+            color: #1e293b;
+            margin-bottom: 0.4rem;
+            font-size: 1.1rem;
+        }
+
+        .experience-meta {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .experience-item .desc {
+            color: #64748b;
+            margin-top: 0.6rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== PROJECTS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .project-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .project-card h4 {
+            color: #1e293b;
+            margin-bottom: 0.6rem;
+            font-size: 1.15rem;
+        }
+
+        .project-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.02em;
+        }
+
+        .project-status.completed {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+
+        .project-status.progress {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fde68a;
+        }
+
+        .project-card p {
+            color: #64748b;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin-top: 0.6rem;
+        }
+
+        .project-tech strong {
+            color: #64748b;
+        }
+
+        .project-card .publication-links {
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+        }
+
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        
-        .contact-item strong {
-            width: 100px;
-            color: #2c3e50;
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            gap: 1rem;
         }
 
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .contact-icon.email { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+        .contact-icon.location { background: linear-gradient(135deg, #10b981, #059669); }
+        .contact-icon.institution { background: linear-gradient(135deg, #f59e0b, #d97706); }
+
         .contact-item a {
-            color: #3498db;
+            color: #6366f1;
             text-decoration: none;
+            font-weight: 500;
         }
 
         .contact-item a:hover {
             text-decoration: underline;
         }
-        
+
         .social-links {
             display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
             gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background: #3498db;
-            color: white;
+            padding: 1rem 1.5rem;
+            background: white;
+            border-radius: 12px;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        
-        .social-links a:hover {
-            background: #2980b9;
-        }
-
-        .experience-item {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .experience-item h4 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-meta {
-            color: #666;
-            font-style: italic;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-        }
-
-        .project-card h4 {
-            color: #2c3e50;
-            margin-bottom: 0.8rem;
-            font-size: 1.3rem;
-        }
-
-        .project-status {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            background: #e8f4f8;
-            color: #2980b9;
-            border-radius: 4px;
-            font-size: 0.85rem;
+            color: #334155;
             font-weight: 500;
-            margin-bottom: 0.8rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s;
         }
 
-        .project-status.completed {
-            background: #d4edda;
-            color: #155724;
+        .social-link:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-color: #c7d2fe;
         }
 
-        .project-status.progress {
-            background: #fff3cd;
-            color: #856404;
-        }
-
-        .project-tech {
-            color: #999;
-            font-size: 0.9rem;
-            margin-top: 0.8rem;
-        }
-        
-        footer {
-            background: #2c3e50;
+        .social-link i {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            text-align: center;
-            padding: 2rem;
+            font-size: 0.9rem;
         }
-        
+
+        .social-link .fa-linkedin { background: #0077b5; }
+        .social-link .fa-file-pdf { background: #e74c3c; }
+        .social-link .fa-graduation-cap { background: #4285f4; }
+        .social-link .fa-github { background: #24292e; }
+
+        .social-link span {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            font-weight: 400;
+            margin-left: auto;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 2px solid #6366f1;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        footer .footer-name {
+            color: #e2e8f0;
+            font-weight: 600;
+        }
+
+        /* ===== ANIMATIONS ===== */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -444,25 +767,89 @@
                 transform: translateY(0);
             }
         }
-        
+
+        /* ===== MOBILE ===== */
         @media (max-width: 768px) {
             .about-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
-            
-            .hero h1 {
-                font-size: 2rem;
+
+            .profile-img-wrapper {
+                display: flex;
+                justify-content: center;
             }
-            
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
             .nav-links {
-                gap: 1rem;
-                font-size: 0.9rem;
+                gap: 0;
+                font-size: 0.8rem;
+            }
+
+            .nav-links a {
+                padding: 1.15rem 0.6rem;
             }
 
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== HAMBURGER MENU (Mobile) ===== */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.4rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #0f172a;
+                flex-direction: column;
+                border-top: 1px solid #1e293b;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 1rem 2rem;
+                border-bottom: 1px solid #1e293b;
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .nav-content {
+                position: relative;
             }
         }
     </style>
@@ -470,10 +857,13 @@
 <body>
     <nav class="navbar">
         <div class="nav-content">
-            <a href="#" class="nav-brand">Jad Al Aaraj</a>
+            <a href="#" class="nav-brand">Jad <span>Al Aaraj</span></a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
-                <li><a href="#publications">Publications & Patents</a></li>
+                <li><a href="#publications">Publications</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -483,268 +873,344 @@
 
     <section class="hero">
         <div class="hero-content">
+            <div class="hero-label">PhD Candidate | Graduating June 2026</div>
             <h1>Jad Al Aaraj</h1>
-            <p>PhD Candidate in Electrical and Computer Engineering</p>
-            <p style="font-size: 1.1rem;">University of California, Irvine • EECS Department</p>
+            <p>Electrical and Computer Engineering</p>
+            <p style="font-size: 0.95rem; opacity: 0.7; margin-top: 0.3rem;">University of California, Irvine &middot; EECS Department</p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Get In Touch</a>
-                <a href="https://drive.google.com/file/d/1dN5Ic6uI9H-DLn5NNiMCMca3B4MuPyc-/view?usp=sharing" target="_blank" class="btn btn-secondary"><i class="fas fa-file-pdf"></i>Resume</a>
-                <a href="https://drive.google.com/file/d/1RD6l7FhmYbco5SoHid8iMsGJ38XltOmx/view?usp=sharing" target="_blank" class="btn btn-secondary"><i class="fas fa-file-pdf"></i>CV</a>
-                <a href="https://scholar.google.com/citations?user=dWBIVtsAAAAJ&hl=en&sortby=pubdate" target="_blank" class="btn btn-secondary"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+                <a href="https://drive.google.com/file/d/1dN5Ic6uI9H-DLn5NNiMCMca3B4MuPyc-/view?usp=sharing" target="_blank" class="btn btn-secondary"><i class="fas fa-file-pdf"></i> Resume</a>
+                <a href="https://drive.google.com/file/d/1RD6l7FhmYbco5SoHid8iMsGJ38XltOmx/view?usp=sharing" target="_blank" class="btn btn-secondary"><i class="fas fa-file-pdf"></i> CV</a>
+                <a href="https://scholar.google.com/citations?user=dWBIVtsAAAAJ&hl=en&sortby=pubdate" target="_blank" class="btn btn-secondary"><i class="fas fa-graduation-cap"></i> Scholar</a>
             </div>
         </div>
     </section>
 
-    <div class="container">
-        <section id="about" class="section">
+    <!-- ABOUT -->
+    <div id="about" class="section">
+        <div class="container">
             <h2 class="section-title">About Me</h2>
+            <div class="section-divider"></div>
             <div class="about-grid">
-                <img src="profile_jad.png" alt="Jad Al Aaraj" style="width: 200px; height: 200px; border-radius: 50%; box-shadow: 0 5px 20px rgba(0,0,0,0.15);">
+                <div class="profile-img-wrapper">
+                    <img src="profile_jad.png" alt="Jad Al Aaraj">
+                </div>
                 <div class="about-text">
-                    <p>I am a PhD candidate in the <a href="https://engineering.uci.edu/dept/eecs" target="_blank" style="color: #3498db; text-decoration: none;">EECS department</a> at the University of California, Irvine, advised by Prof. <a href="https://athinagroup.eng.uci.edu/athina/" target="_blank" style="color: #3498db; text-decoration: none;">Athina Markopoulou</a>. I received my B.E. degree in Computer and Communications Engineering from American University of Beirut in 2020 and my M.Sc. degree in Electrical Engineering from University of California, Irvine in 2023.</p>
-                    
-                    <p style="margin-top: 1rem;">My research focuses on developing innovative solutions at the intersection of privacy, security, and emerging technologies. I'm particularly passionate about empowering users with transparency and control over their data in IoT ecosystems and camera-enabled devices.</p>
-                    
-                    <p style="margin-top: 1rem;"><strong>Expected Graduation:</strong> June 2026</p>
-                    
-                    <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: #2c3e50;">Research Interests</h3>
+                    <p>I am a PhD candidate in the <a href="https://engineering.uci.edu/dept/eecs" target="_blank">EECS department</a> at the University of California, Irvine, advised by Prof. <a href="https://athinagroup.eng.uci.edu/athina/" target="_blank">Athina Markopoulou</a>. I received my B.E. in Computer and Communications Engineering from the American University of Beirut in 2020 and my M.Sc. in Electrical Engineering from UC Irvine in 2023.</p>
+
+                    <p style="margin-top: 1rem;">My research focuses on developing innovative solutions at the intersection of privacy, security, and emerging technologies. I am particularly passionate about empowering users with transparency and control over their data in IoT ecosystems and camera-enabled devices.</p>
+
+                    <div class="graduation-badge">
+                        <i class="fas fa-calendar-check"></i> Graduation: June 2026
+                    </div>
+
+                    <h3 style="margin-top: 2rem; margin-bottom: 0.8rem; color: #1e293b; font-size: 1.1rem;">Research Interests</h3>
                     <div class="research-interests">
-                        <span class="tag">Internet-of-Things (IoT)</span>
-                        <span class="tag">Privacy & Security</span>
-                        <span class="tag">Network Measurements</span>
-                        <span class="tag">Bystander Privacy</span>
-                        <span class="tag">AR/MR Systems</span>
-                        <span class="tag">Computer Networks</span>
+                        <span class="tag tag-indigo">Internet-of-Things (IoT)</span>
+                        <span class="tag tag-rose">Privacy &amp; Security</span>
+                        <span class="tag tag-sky">Network Measurements</span>
+                        <span class="tag tag-amber">Bystander Privacy</span>
+                        <span class="tag tag-violet">AR/MR Systems</span>
+                        <span class="tag tag-emerald">Computer Networks</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <section id="publications" class="section">
-            <h2 class="section-title">Publications & Patents</h2>
-            
-            <h3 style="color: #2c3e50; margin: 3rem 0 1.5rem 0; font-size: 1.8rem;">Published Papers</h3>
-            <!-- <h3 style="color: #2c3e50; margin-bottom: 1.5rem; font-size: 1.8rem;">Work In Progress</h3> -->
-            
+    <!-- PUBLICATIONS -->
+    <div id="publications" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Publications &amp; Patents</h2>
+            <!-- <p class="section-subtitle">Peer-reviewed research and intellectual property</p> -->
+            <div class="section-divider"></div>
+
+            <div class="pub-category">
+                <span class="pub-category-icon papers"><i class="fas fa-file-alt"></i></span>
+                Published &amp; Under Review
+            </div>
+
             <div class="publication wip">
-                <span class="badge">Under Review</span>
+                <span class="badge badge-review">Under Review</span>
                 <h4>BlindSpot: Enabling Bystander-Controlled Privacy Signaling for Camera Enabled Devices</h4>
                 <p class="publication-authors"><strong>Jad Al Aaraj</strong> and Athina Markopoulou</p>
                 <p class="publication-venue">Under Review</p>
-                <p style="margin-top: 0.5rem; color: #666;">A system that enables bystanders to signal their privacy preferences to camera-enabled devices in their vicinity.</p>
+                <p class="publication-desc">A system that enables bystanders to signal their privacy preferences to camera-enabled devices in their vicinity.</p>
                 <div class="publication-links">
-                    <a href="https://arxiv.org/abs/2512.14746" target="_blank">arXiv</a>
-                    <a href="https://athinagroup.eng.uci.edu/projects/xrprivacy/#blindspot" target="_blank">Project Page</a>
+                    <a href="https://arxiv.org/abs/2512.14746" target="_blank"><i class="fas fa-external-link-alt"></i> arXiv</a>
+                    <a href="https://athinagroup.eng.uci.edu/projects/xrprivacy/#blindspot" target="_blank"><i class="fas fa-globe"></i> Project Page</a>
                 </div>
             </div>
 
             <div class="publication wip">
-                <span class="badge">Under Review</span>
+                <span class="badge badge-review">Under Review</span>
                 <h4><a href="https://www.arxiv.org/pdf/2409.06233" target="_blank">VBIT: Towards Enhancing Privacy Control Over IoT Devices</a></h4>
                 <p class="publication-authors"><strong>Jad Al Aaraj</strong>, Olivia Figueira, Tu Le, Isabela Figueira, Rahmadi Trimananda, Athina Markopoulou</p>
                 <p class="publication-venue">Under Review</p>
-                <p style="margin-top: 0.5rem; color: #666;">An interactive system combining Mixed Reality and web applications to help users identify and manage data collection by IoT devices in shared spaces.</p>
+                <p class="publication-desc">An interactive system combining Mixed Reality and web applications to help users identify and manage data collection by IoT devices in shared spaces.</p>
                 <div class="publication-links">
-                    <a href="https://www.arxiv.org/abs/2409.06233" target="_blank">arXiv</a>
-                    <a href="https://athinagroup.eng.uci.edu/iot-privacy/#vbit" target="_blank">Project Page</a>
+                    <a href="https://www.arxiv.org/abs/2409.06233" target="_blank"><i class="fas fa-external-link-alt"></i> arXiv</a>
+                    <a href="https://athinagroup.eng.uci.edu/iot-privacy/#vbit" target="_blank"><i class="fas fa-globe"></i> Project Page</a>
                 </div>
             </div>
 
-            <!-- <h3 style="color: #2c3e50; margin: 3rem 0 1.5rem 0; font-size: 1.8rem;">Published Papers</h3> -->
-            
             <div class="publication">
                 <h4><a href="https://doi.org/10.1145/3704413.3765296" target="_blank">BystandARIA: Enabling AR Bystander Privacy using LEDs</a></h4>
                 <p class="publication-authors"><strong>Jad Al Aaraj</strong> and Athina Markopoulou</p>
-                <p class="publication-venue">ACM MobiHoc '25 - The Twenty-sixth International Symposium on Theory, Algorithmic Foundations, and Protocol Design for Mobile Networks and Mobile Computing, October 27–30, 2025, Houston, TX, USA</p>
-                <p style="margin-top: 0.5rem; color: #666;">A novel approach to protect bystander privacy in augmented reality environments using LED-based signaling.</p>
+                <p class="publication-venue">ACM MobiHoc '25 &mdash; Houston, TX, October 2025</p>
+                <p class="publication-desc">A novel approach to protect bystander privacy in augmented reality environments using LED-based signaling.</p>
                 <div class="publication-links">
-                    <a href="https://doi.org/10.1145/3704413.3765296" target="_blank">DOI</a>
-                    <a href="https://dl.acm.org/doi/pdf/10.1145/3704413.3765296" target="_blank">PDF</a>
+                    <a href="https://doi.org/10.1145/3704413.3765296" target="_blank"><i class="fas fa-link"></i> DOI</a>
+                    <a href="https://dl.acm.org/doi/pdf/10.1145/3704413.3765296" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
                 </div>
             </div>
-            
+
             <div class="publication">
                 <h4><a href="https://petsymposium.org/popets/2022/popets-2022-0088.pdf" target="_blank">FingerprinTV: Fingerprinting Smart TV Apps</a></h4>
                 <p class="publication-authors">J. Varmarken, <strong>Jad Al Aaraj</strong>, R. Trimananda, A. Markopoulou</p>
-                <p class="publication-venue">Proceedings of the Privacy Enhancing Technologies Symposium (PETS) 2022, Issue 3, July 2022, Sydney, Australia</p>
-                <p style="margin-top: 0.5rem; color: #666;">A system for fingerprinting and identifying smart TV applications through network traffic analysis.</p>
+                <p class="publication-venue">PETS 2022 &mdash; Sydney, Australia, July 2022</p>
+                <p class="publication-desc">A system for fingerprinting and identifying smart TV applications through network traffic analysis.</p>
                 <div class="publication-links">
-                    <a href="https://doi.org/10.56553/popets-2022-0088" target="_blank">DOI</a>
-                    <a href="https://petsymposium.org/popets/2022/popets-2022-0088.pdf" target="_blank">PDF</a>
+                    <a href="https://doi.org/10.56553/popets-2022-0088" target="_blank"><i class="fas fa-link"></i> DOI</a>
+                    <a href="https://petsymposium.org/popets/2022/popets-2022-0088.pdf" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
                 </div>
             </div>
 
-            <h3 style="color: #2c3e50; margin: 3rem 0 1.5rem 0; font-size: 1.8rem;">Patents</h3>
+            <div class="pub-category">
+                <span class="pub-category-icon patents"><i class="fas fa-certificate"></i></span>
+                Patents
+            </div>
 
             <div class="publication patent">
-                <span class="badge patent">U.S. Patent</span>
+                <span class="badge badge-patent">U.S. Patent</span>
                 <h4><a href="https://patents.justia.com/patent/11935299" target="_blank">Decoding light-based messages to support device maintenance</a></h4>
                 <p class="publication-authors">Samer Salam (Beirut), <strong>Jad Al Aaraj (Irvine, CA)</strong></p>
-                <p class="publication-venue">U.S. Patent 11935299, March 19, 2024</p>
-                <p style="margin-top: 0.5rem; color: #666;">A method for decoding messages transmitted through blinking LED light sources using real-time video processing.</p>
+                <p class="publication-venue">U.S. Patent 11935299 &mdash; March 19, 2024</p>
+                <p class="publication-desc">A method for decoding messages transmitted through blinking LED light sources using real-time video processing.</p>
                 <div class="publication-links">
-                    <a href="https://patents.justia.com/patent/11935299" target="_blank">View Patent</a>
+                    <a href="https://patents.justia.com/patent/11935299" target="_blank"><i class="fas fa-external-link-alt"></i> View Patent</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <section id="experience" class="section">
+    <!-- EXPERIENCE -->
+    <div id="experience" class="section">
+        <div class="container">
             <h2 class="section-title">Experience</h2>
-            
-            <h3 style="color: #2c3e50; margin-bottom: 1.5rem; font-size: 1.8rem;">Work Experience</h3>
-            
-            <div class="experience-item">
-                <h4>Software Engineer PhD Intern</h4>
-                <p class="experience-meta"><img src="//logotyp.us/file/cisco.svg" alt="Cisco" style="width: 3em; vertical-align: middle;"/> Cisco Systems, San Jose, CA | June 2023 – September 2023</p>
-                <p style="color: #666; margin-top: 0.5rem;">Developed ML models for detecting access points in real-world deployments.</p>
+            <p class="section-subtitle">Industry internships and teaching</p>
+            <div class="section-divider"></div>
+
+            <div class="pub-category">
+                <span class="pub-category-icon papers"><i class="fas fa-briefcase"></i></span>
+                Work Experience
             </div>
 
             <div class="experience-item">
                 <h4>Software Engineer PhD Intern</h4>
-                <p class="experience-meta"><img src="//logotyp.us/file/cisco.svg" alt="Cisco" style="width: 3em; vertical-align: middle;"/> Cisco Systems, San Jose, CA | June 2022 – September 2022</p>
-                <p style="color: #666; margin-top: 0.5rem;">Continued work on light-based communication systems for device maintenance.</p>
+                <div class="experience-meta">
+                    <strong style="color: #1e293b;">Cisco Systems</strong> &middot; San Jose, CA &middot; June 2023 &ndash; September 2023
+                </div>
+                <p class="desc">Developed ML models for detecting access points in real-world deployments.</p>
             </div>
 
             <div class="experience-item">
                 <h4>Software Engineer PhD Intern</h4>
-                <p class="experience-meta"><img src="//logotyp.us/file/cisco.svg" alt="Cisco" style="width: 3em; vertical-align: middle;"/> Cisco Systems, San Jose, CA | June 2021 – September 2021</p>
-                <p style="color: #666; margin-top: 0.5rem;">Developed system for decoding light-based messages, leading to U.S. Patent 11935299.</p>
-                <div class="publication-links" style="margin-top: 1rem;">
-                    <a href="https://patents.justia.com/patent/11935299" target="_blank">View Patent</a>
+                <div class="experience-meta">
+                    <strong style="color: #1e293b;">Cisco Systems</strong> &middot; San Jose, CA &middot; June 2022 &ndash; September 2022
+                </div>
+                <p class="desc">Continued work on light-based communication systems for device maintenance.</p>
+            </div>
+
+            <div class="experience-item">
+                <h4>Software Engineer PhD Intern</h4>
+                <div class="experience-meta">
+                    <strong style="color: #1e293b;">Cisco Systems</strong> &middot; San Jose, CA &middot; June 2021 &ndash; September 2021
+                </div>
+                <p class="desc">Developed system for decoding light-based messages, leading to U.S. Patent 11935299.</p>
+                <div class="publication-links" style="margin-top: 0.8rem;">
+                    <a href="https://patents.justia.com/patent/11935299" target="_blank"><i class="fas fa-certificate"></i> View Patent</a>
                 </div>
             </div>
 
             <div class="experience-item">
                 <h4>Software Engineer Intern</h4>
-                <p class="experience-meta"><img src="//logotyp.us/file/cisco.svg" alt="Cisco" style="width: 3em; vertical-align: middle;"/> Cisco Systems, Beirut, Lebanon | July 2019 - September 2020</p>
-                <p style="color: #666; margin-top: 0.5rem;">1. Built a 3D Wireless Analyzer using Three.js, GLSL shaders, and GPGPU to visualize RF heatmaps and network coverage in real-time, significantly enhancing observability tools.
-                <p style="color: #666; margin-top: 0.5rem;">2. Extended Ontop OBDA system to support multiple database types including Gremlin graph databases.</p>
+                <div class="experience-meta">
+                    <strong style="color: #1e293b;">Cisco Systems</strong> &middot; Beirut, Lebanon &middot; July 2019 &ndash; September 2020
+                </div>
+                <p class="desc">1. Built a 3D Wireless Analyzer using Three.js, GLSL shaders, and GPGPU to visualize RF heatmaps and network coverage in real-time, significantly enhancing observability tools.</p>
+                <p class="desc">2. Extended Ontop OBDA system to support multiple database types including Gremlin graph databases.</p>
             </div>
 
-            <h3 style="color: #2c3e50; margin: 3rem 0 1.5rem 0; font-size: 1.8rem;">Teaching Experience</h3>
+            <div class="pub-category" style="margin-top: 3rem;">
+                <span class="pub-category-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);"><i class="fas fa-chalkboard-teacher"></i></span>
+                Teaching Experience
+            </div>
 
             <div class="experience-item">
-                <h4>Teaching Assistant - Organization of Digital Computers Laboratory (EECS 112L)</h4>
-                <p class="experience-meta">University of California, Irvine | January 2022 – March 2022, October 2022 – December 2022</p>
-                <p style="color: #666; margin-top: 0.5rem;">Assisted students with digital logic design, computer organization concepts, and laboratory assignments.</p>
+                <h4>Teaching Assistant &mdash; Organization of Digital Computers Laboratory (EECS 112L)</h4>
+                <div class="experience-meta">
+                    <strong style="color: #1e293b;">UC Irvine</strong> &middot; Jan&ndash;Mar 2022, Oct&ndash;Dec 2022
+                </div>
+                <p class="desc">Assisted students with digital logic design, computer organization concepts, and laboratory assignments.</p>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <section id="projects" class="section">
+    <!-- PROJECTS -->
+    <div id="projects" class="section section-alt">
+        <div class="container">
             <h2 class="section-title">Projects</h2>
-            
-            <div class="project-card">
-                <h4>BlindSpot: Bystander Privacy System</h4>
-                <span class="project-status progress">Under Review</span>
-                <p>A system that allows bystanders to signal their privacy preferences to camera-enabled devices, enabling privacy-aware recording and data collection.</p>
-                <p class="project-tech"><strong>Technologies:</strong> Kotlin, Android Development, OpenGL, Python</p>
-                <p class="project-tech"><strong>Status:</strong>Under Review</p>
-                <div class="publication-links">
-                    <a href="https://arxiv.org/abs/2512.14746" target="_blank">arXiv</a>
-                    <a href="https://athinagroup.eng.uci.edu/projects/xrprivacy/#blindspot" target="_blank">Project Page</a>
+            <p class="section-subtitle">Research prototypes, engineering tools, and side projects</p>
+            <div class="section-divider"></div>
+
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <h4>BlindSpot: Bystander Privacy System</h4>
+                    <span class="project-status progress">Under Review</span>
+                    <p>A system that allows bystanders to signal their privacy preferences to camera-enabled devices, enabling privacy-aware recording and data collection.</p>
+                    <p class="project-tech"><strong>Stack:</strong> Kotlin, Android, OpenGL, Python</p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/abs/2512.14746" target="_blank"><i class="fas fa-external-link-alt"></i> arXiv</a>
+                        <a href="https://athinagroup.eng.uci.edu/projects/xrprivacy/#blindspot" target="_blank"><i class="fas fa-globe"></i> Project</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="project-card">
-                <h4>LLM-Powered Network Privacy Auditor</h4>
-                <span class="project-status progress">Conceptual / Starting Soon</span>
-                <p>A tool that translates raw network traffic logs into human-readable privacy reports using LLMs, backed by a knowledge base of tracking domains and protocols.</p>
-                <p class="project-tech"><strong>Technologies:</strong> Python, LlamaIndex, LangChain, LangGraph</p>
-            </div>
-
-            <div class="project-card">
-                <h4>BystandARIA: AR Bystander Privacy</h4>
-                <span class="project-status completed">Published</span>
-                <p>A novel LED-based signaling system that enables bystander privacy protection in augmented reality environments. Accepted at ACM MobiHoc'25.</p>
-                <p class="project-tech"><strong>Technologies:</strong> Kotlin, Android Development, OpenGL, Computer Vision</p>
-                <p class="project-tech"><strong>Status:</strong> Published at ACM MobiHoc '25</p>
-            </div>
-
-            <div class="project-card">
-                <h4>VBIT: Visualizing and Blocking IoT Trackers</h4>
-                <span class="project-status progress">Under Review</span>
-                <p>An interactive Mixed Reality and web-based system that enables users to identify and manage data collection by IoT devices through network traffic analysis and visualization.</p>
-                <p class="project-tech"><strong>Technologies:</strong> Python (Flask), JavaScript/CSS, SQLite, Mixed Reality</p>
-                <div class="publication-links" style="margin-top: 1rem;">
-                    <a href="https://www.arxiv.org/abs/2409.06233" target="_blank">arXiv</a>
-                    <a href="https://athinagroup.eng.uci.edu/iot-privacy/#vbit" target="_blank">Project Page</a>
+                <div class="project-card">
+                    <h4>LLM-Powered Network Privacy Auditor</h4>
+                    <span class="project-status progress">Starting Soon</span>
+                    <p>A tool that translates raw network traffic logs into human-readable privacy reports using LLMs, backed by a knowledge base of tracking domains and protocols.</p>
+                    <p class="project-tech"><strong>Stack:</strong> Python, LlamaIndex, LangChain, LangGraph</p>
                 </div>
-            </div>
 
-            <div class="project-card">
-                <h4>Amazon Alexa Privacy Analysis</h4>
-                <span class="project-status progress">In Progress</span>
-                <p>Analyzing the advertising ecosystem of Amazon Alexa devices to understand data collection practices and privacy implications.</p>
-                <p class="project-tech"><strong>Technologies:</strong> Python, Network Analysis</p>
-            </div>
-
-            <div class="project-card">
-                <h4>ML Model for Access Point Detection</h4>
-                <span class="project-status completed">Completed</span>
-                <p>Trained a machine learning model to detect Cisco Access Points in real-world environments using computer vision techniques.</p>
-                <p class="project-tech"><strong>Technologies:</strong> YOLO/CNNs, Python</p>
-                <p class="project-tech"><strong>Location:</strong> Cisco Internship (2023)</p>
-            </div>
-
-            <div class="project-card">
-                <h4>Decoding Light-Based Messages (Patented)</h4>
-                <span class="project-status completed">Completed - Patent Granted</span>
-                <p>Developed a system using real-time video to detect and decode messages transmitted by blinking LED light sources for device maintenance.</p>
-                <p class="project-tech"><strong>Technologies:</strong> OpenCV.js, JavaScript, Computer Vision</p>
-                <p class="project-tech"><strong>Location:</strong> Cisco Internship (2021, 2022)</p>
-                <div class="publication-links" style="margin-top: 1rem;">
-                    <a href="https://patents.google.com/patent/US11935299B2/en" target="_blank">U.S. Patent</a>
+                <div class="project-card">
+                    <h4>BystandARIA: AR Bystander Privacy</h4>
+                    <span class="project-status completed">Published</span>
+                    <p>A novel LED-based signaling system that enables bystander privacy protection in augmented reality environments.</p>
+                    <p class="project-tech"><strong>Stack:</strong> Kotlin, Android, OpenGL, Computer Vision</p>
+                    <p class="project-tech"><strong>Venue:</strong> ACM MobiHoc '25</p>
                 </div>
-            </div>
 
-            <div class="project-card">
-                <h4>Cisco Wireless 3D Analyzer</h4>
-                <span class="project-status completed">Completed</span>
-                <p>Created 3D wireless heat-maps for network visualization using advanced graphics programming and GPU computation.</p>
-                <p class="project-tech"><strong>Technologies:</strong> JavaScript, Three.js, GLSL Shaders, GPGPU</p>
-                <p class="project-tech"><strong>Location:</strong> Cisco Internship (2020)</p>
-                <div class="publication-links" style="margin-top: 1rem;">
-                    <a href="https://blogs.cisco.com/tag/cisco-wireless-3d-analyzer" target="_blank">Project Demo</a>
+                <div class="project-card">
+                    <h4>VBIT: Visualizing IoT Trackers</h4>
+                    <span class="project-status progress">Under Review</span>
+                    <p>An interactive MR and web-based system that enables users to identify and manage data collection by IoT devices through network traffic analysis.</p>
+                    <p class="project-tech"><strong>Stack:</strong> Python (Flask), JS/CSS, SQLite, MR</p>
+                    <div class="publication-links">
+                        <a href="https://www.arxiv.org/abs/2409.06233" target="_blank"><i class="fas fa-external-link-alt"></i> arXiv</a>
+                        <a href="https://athinagroup.eng.uci.edu/iot-privacy/#vbit" target="_blank"><i class="fas fa-globe"></i> Project</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="project-card">
-                <h4>Virtual Knowledge Graph (VKG) to Database</h4>
-                <span class="project-status completed">Completed</span>
-                <p>Extended the open-source OBDA system Ontop to support multiple database types simultaneously, adding graph database (Gremlin) support.</p>
-                <p class="project-tech"><strong>Technologies:</strong> Java, Gremlin, SQL, SPARQL</p>
-                <p class="project-tech"><strong>Location:</strong> Cisco Internship (2019-2020)</p>
-            </div>
-        </section>
+                <div class="project-card">
+                    <h4>Amazon Alexa Privacy Analysis</h4>
+                    <span class="project-status progress">In Progress</span>
+                    <p>Analyzing the advertising ecosystem of Amazon Alexa devices to understand data collection practices and privacy implications.</p>
+                    <p class="project-tech"><strong>Stack:</strong> Python, Network Analysis</p>
+                </div>
 
-        <section id="contact" class="section">
-            <h2 class="section-title">Contact</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <strong>Email:</strong> <a href="mailto:jalaaraj@uci.edu"><i class="fas fa-envelope"></i> jalaaraj@uci.edu</a>
-                    <!-- <strong>Email:</strong> <i class="fas fa-envelope"></i> jalaaraj at uci dot edu</a> -->
+                <div class="project-card">
+                    <h4>ML Access Point Detection</h4>
+                    <span class="project-status completed">Completed</span>
+                    <p>Trained a machine learning model to detect Cisco Access Points in real-world environments using computer vision techniques.</p>
+                    <p class="project-tech"><strong>Stack:</strong> YOLO/CNNs, Python</p>
+                    <p class="project-tech"><strong>Context:</strong> Cisco Internship (2023)</p>
                 </div>
-                <div class="contact-item">
-                    <strong>Location:</strong> <span>Irvine, CA</span>
+
+                <div class="project-card">
+                    <h4>Decoding Light-Based Messages</h4>
+                    <span class="project-status completed">Patent Granted</span>
+                    <p>Developed a system using real-time video to detect and decode messages transmitted by blinking LED light sources for device maintenance.</p>
+                    <p class="project-tech"><strong>Stack:</strong> OpenCV.js, JavaScript, CV</p>
+                    <div class="publication-links">
+                        <a href="https://patents.google.com/patent/US11935299B2/en" target="_blank"><i class="fas fa-certificate"></i> Patent</a>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <strong>Institution:</strong> <span>University of California, Irvine</span>
+
+                <div class="project-card">
+                    <h4>Cisco Wireless 3D Analyzer</h4>
+                    <span class="project-status completed">Completed</span>
+                    <p>Created 3D wireless heat-maps for network visualization using advanced graphics programming and GPU computation.</p>
+                    <p class="project-tech"><strong>Stack:</strong> Three.js, GLSL Shaders, GPGPU</p>
+                    <div class="publication-links">
+                        <a href="https://blogs.cisco.com/tag/cisco-wireless-3d-analyzer" target="_blank"><i class="fas fa-play-circle"></i> Demo</a>
+                    </div>
                 </div>
-                
+
+                <div class="project-card">
+                    <h4>VKG to Database (Ontop Extension)</h4>
+                    <span class="project-status completed">Completed</span>
+                    <p>Extended the open-source OBDA system Ontop to support multiple database types simultaneously, including Gremlin graph databases.</p>
+                    <p class="project-tech"><strong>Stack:</strong> Java, Gremlin, SQL, SPARQL</p>
+                    <p class="project-tech"><strong>Context:</strong> Cisco Internship (2019-2020)</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Open to research collaborations and industry opportunities</p>
+            <div class="section-divider"></div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon email"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 2px;">Email</div>
+                            <a href="mailto:jalaaraj@uci.edu">jalaaraj@uci.edu</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon location"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 2px;">Location</div>
+                            <span style="color: #334155;">Irvine, CA</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon institution"><i class="fas fa-university"></i></div>
+                        <div>
+                            <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 2px;">Institution</div>
+                            <span style="color: #334155;">University of California, Irvine</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/jad-aaraj" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
-                    <a href="https://drive.google.com/file/d/1dN5Ic6uI9H-DLn5NNiMCMca3B4MuPyc-/view?usp=sharing" target="_blank"><i class="fas fa-file-pdf"></i>Resume</a>
-                    <a href="https://drive.google.com/file/d/1RD6l7FhmYbco5SoHid8iMsGJ38XltOmx/view?usp=sharing" target="_blank"><i class="fas fa-file-pdf"></i>CV</a>
-                    <a href="https://scholar.google.com/citations?user=dWBIVtsAAAAJ&hl=en&sortby=pubdate" target="_blank"><i class="fas fa-graduation-cap"></i>Google Scholar</a>
-                    <!-- <a href="https://github.com/jalaaraj" target="_blank"><i class="fab fa-github"></i> GitHub</a> -->
+                    <a href="https://www.linkedin.com/in/jad-aaraj" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                        <span>linkedin.com/in/jad-aaraj</span>
+                    </a>
+                    <a href="https://drive.google.com/file/d/1dN5Ic6uI9H-DLn5NNiMCMca3B4MuPyc-/view?usp=sharing" target="_blank" class="social-link">
+                        <i class="fas fa-file-pdf"></i>
+                        Resume
+                        <span>View PDF</span>
+                    </a>
+                    <a href="https://drive.google.com/file/d/1RD6l7FhmYbco5SoHid8iMsGJ38XltOmx/view?usp=sharing" target="_blank" class="social-link">
+                        <i class="fas fa-file-pdf"></i>
+                        Curriculum Vitae
+                        <span>View PDF</span>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=dWBIVtsAAAAJ&hl=en&sortby=pubdate" target="_blank" class="social-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        Google Scholar
+                        <span>View profile</span>
+                    </a>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Jad Al Aaraj. All rights reserved.</p>
-        <p style="margin-top: 0.5rem; opacity: 0.8;">PhD Candidate @ UC Irvine | Last updated: January 2026</p>
+        <p>&copy; 2026 <span class="footer-name">Jad Al Aaraj</span>. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">PhD Candidate @ UC Irvine &middot; Last updated March 2026</p>
     </footer>
 </body>
 </html>
