@@ -29,3 +29,6 @@ package-lock.json
 # Other system files
 Thumbs.db
 Desktop.ini
+
+# Testing html file
+index2.html
