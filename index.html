@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jad Al Aaraj's Personal Page</title>
+    <title>Jad Aaraj's Personal Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,119 +19,384 @@
 
     gtag('config', 'G-LW4NKRDVXN');
     </script>
+
+    <script>
+        // In-line script to prevent flash of wrong theme on load
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme === 'dark' || (!savedTheme && userPrefersDark)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+    </script>
+
     <style>
+        /* Design Tokens & Theme Variables */
+        :root {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-nav: rgba(255, 255, 255, 0.75);
+            --border-color: #e2e8f0;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            --text-light: #94a3b8;
+            --accent-color: #6366f1;
+            --accent-hover: #4f46e5;
+            --card-bg: #ffffff;
+            
+            --hero-bg: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e1b4b 100%);
+            
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 20px 25px -5px rgba(99, 102, 241, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            --nav-text: #64748b;
+            --nav-text-hover: #0f172a;
+
+            /* Adaptive Tags */
+            --tag-indigo-bg: #eef2ff;
+            --tag-indigo-txt: #4338ca;
+            --tag-indigo-border: #c7d2fe;
+            --tag-emerald-bg: #ecfdf5;
+            --tag-emerald-txt: #065f46;
+            --tag-emerald-border: #a7f3d0;
+            --tag-rose-bg: #fff1f2;
+            --tag-rose-txt: #9f1239;
+            --tag-rose-border: #fecdd3;
+            --tag-sky-bg: #f0f9ff;
+            --tag-sky-txt: #0c4a6e;
+            --tag-sky-border: #bae6fd;
+            --tag-amber-bg: #fffbeb;
+            --tag-amber-txt: #92400e;
+            --tag-amber-border: #fde68a;
+            --tag-violet-bg: #f5f3ff;
+            --tag-violet-txt: #5b21b6;
+            --tag-violet-border: #ddd6fe;
+        }
+
+        html.dark {
+            --bg-primary: #090d16;
+            --bg-secondary: #111827;
+            --bg-nav: rgba(9, 13, 22, 0.8);
+            --border-color: #1f2937;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --text-light: #475569;
+            --accent-color: #818cf8;
+            --accent-hover: #6366f1;
+            --card-bg: #111827;
+            
+            --hero-bg: linear-gradient(135deg, #05080f 0%, #090d16 60%, #12102e 100%);
+            
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+            --shadow-hover: 0 20px 25px -5px rgba(129, 140, 248, 0.18), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+            
+            --nav-text: #94a3b8;
+            --nav-text-hover: #f8fafc;
+
+            /* Adaptive Tags (Dark Mode) */
+            --tag-indigo-bg: rgba(99, 102, 241, 0.15);
+            --tag-indigo-txt: #a5b4fc;
+            --tag-indigo-border: rgba(99, 102, 241, 0.25);
+            --tag-emerald-bg: rgba(16, 185, 129, 0.15);
+            --tag-emerald-txt: #34d399;
+            --tag-emerald-border: rgba(16, 185, 129, 0.25);
+            --tag-rose-bg: rgba(244, 63, 94, 0.15);
+            --tag-rose-txt: #fb7185;
+            --tag-rose-border: rgba(244, 63, 94, 0.25);
+            --tag-sky-bg: rgba(14, 165, 233, 0.15);
+            --tag-sky-txt: #38bdf8;
+            --tag-sky-border: rgba(14, 165, 233, 0.25);
+            --tag-amber-bg: rgba(245, 158, 11, 0.15);
+            --tag-amber-txt: #fbbf24;
+            --tag-amber-border: rgba(245, 158, 11, 0.25);
+            --tag-violet-bg: rgba(139, 92, 246, 0.15);
+            --tag-violet-txt: #c084fc;
+            --tag-violet-border: rgba(139, 92, 246, 0.25);
+        }
+
+        /* Smooth Theme Transitions on Color properties only (ignores layout/transform performance) */
+        body, nav, div, section, span, p, h1, h2, h3, h4, a, button, li {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
         html { scroll-behavior: smooth; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #334155; background: #f8fafc; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: var(--text-secondary); background: var(--bg-primary); }
         a, button, [role="button"] { cursor: pointer; }
-        .navbar { background: #0f172a; padding: 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 3px rgba(0,0,0,0.2); border-bottom: 2px solid #6366f1; }
+
+        /* Glassmorphic Header Navigation */
+        .navbar { 
+            background: var(--bg-nav); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px); 
+            padding: 0; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            box-shadow: var(--shadow-sm); 
+            border-bottom: 1px solid var(--border-color); 
+        }
         .nav-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
-        .nav-brand { color: white; font-size: 1.3rem; font-weight: 700; text-decoration: none; padding: 1rem 0; letter-spacing: -0.02em; }
-        .nav-brand span { color: #818cf8; }
-        .nav-links { display: flex; gap: 0; list-style: none; }
-        .nav-links a { color: #94a3b8; text-decoration: none; transition: all 0.3s; font-weight: 500; font-size: 0.9rem; padding: 1.15rem 1.2rem; display: block; position: relative; }
-        .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: #818cf8; transition: width 0.3s; }
-        .nav-links a:hover { color: #e2e8f0; background: rgba(255,255,255,0.04); }
-        .nav-links a:hover::after { width: 60%; }
-        .hero { background: linear-gradient(135deg, #283548 0%, #1a2438 50%, #282358 100%); color: white; padding: 5rem 2rem 4rem; text-align: center; position: relative; overflow: hidden; }
-        .hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(99,102,241,0.12), transparent 70%); pointer-events: none; }
-        .hero::after { content: ''; position: absolute; bottom: -30%; left: -10%; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(16,185,129,0.08), transparent 70%); pointer-events: none; }
+        .nav-brand { color: var(--text-primary); font-size: 1.3rem; font-weight: 700; text-decoration: none; padding: 1rem 0; letter-spacing: -0.02em; }
+        .nav-brand span { color: var(--accent-color); }
+        
+        .nav-actions { display: flex; align-items: center; gap: 0.5rem; }
+        
+        /* Premium Theme Toggle button */
+        .theme-toggle-btn {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.15rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .theme-toggle-btn:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--accent-color);
+            transform: scale(1.1) rotate(15deg);
+        }
+
+        .nav-links { display: flex; gap: 0.5rem; list-style: none; }
+        .nav-links a { 
+            color: var(--nav-text); 
+            text-decoration: none; 
+            font-weight: 500; 
+            font-size: 0.9rem; 
+            padding: 1.15rem 1.2rem; 
+            display: block; 
+            position: relative; 
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .nav-links a::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 0; 
+            height: 2.5px; 
+            background: var(--accent-color); 
+            border-radius: 2px;
+            transition: width 0.3s; 
+        }
+        .nav-links a:hover { color: var(--nav-text-hover); background: rgba(99, 102, 241, 0.05); }
+        .nav-links a:hover::after,
+        .nav-links a.active::after { width: 50%; }
+        .nav-links a.active { color: var(--accent-color); font-weight: 600; }
+
+        /* Hero Section */
+        .hero { background: var(--hero-bg); color: white; padding: 5.5rem 2rem 4.5rem; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(99,102,241,0.15), transparent 70%); pointer-events: none; }
+        .hero::after { content: ''; position: absolute; bottom: -30%; left: -10%; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(16,185,129,0.1), transparent 70%); pointer-events: none; }
         .hero-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
-        .hero-label { display: inline-block; padding: 0.4rem 1.2rem; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); border-radius: 50px; color: #a5b4fc; font-size: 0.85rem; font-weight: 500; margin-bottom: 1.5rem; letter-spacing: 0.02em; }
-        .hero h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 3.2rem; margin-bottom: 1rem; animation: fadeInUp 0.8s ease; font-weight: 700; letter-spacing: -0.02em; }
+        .hero-label { display: inline-block; padding: 0.4rem 1.2rem; background: rgba(99,102,241,0.18); border: 1px solid rgba(99,102,241,0.35); border-radius: 50px; color: #a5b4fc; font-size: 0.85rem; font-weight: 500; margin-bottom: 1.5rem; letter-spacing: 0.02em; backdrop-filter: blur(4px); }
+        .hero h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 3.2rem; margin-bottom: 1rem; animation: fadeInUp 0.8s ease; font-weight: 700; letter-spacing: -0.02em; text-shadow: 0 2px 10px rgba(0,0,0,0.15); }
         .hero p { font-size: 1.15rem; margin-bottom: 0.3rem; opacity: 0.85; animation: fadeInUp 1s ease; font-weight: 300; }
         .hero-buttons { margin-top: 2.5rem; display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
-        .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.8rem; background: #6366f1; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; animation: fadeInUp 1.2s ease; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(99,102,241,0.35); background: #4f46e5; }
+        
+        .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.8rem; background: var(--accent-color); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background-color 0.3s ease; animation: fadeInUp 1.2s ease; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(99,102,241,0.35); background: var(--accent-hover); }
         .btn-secondary { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); }
         .btn-secondary:hover { background: rgba(255,255,255,0.15); box-shadow: 0 8px 25px rgba(0,0,0,0.2); border-color: rgba(255,255,255,0.35); }
+        
         .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
-        .section { padding: 5rem 0; }
-        .section-alt { background: #f1f5f9; }
-        .section-title { font-family: 'Source Serif 4', Georgia, serif; font-size: 2.2rem; margin-bottom: 0.5rem; color: #0f172a; font-weight: 700; letter-spacing: -0.02em; }
-        .section-subtitle { color: #64748b; font-size: 1rem; margin-bottom: 2.5rem; font-weight: 400; }
-        .section-divider { width: 50px; height: 3px; background: linear-gradient(90deg, #6366f1, #10b981); border-radius: 2px; margin-bottom: 2.5rem; }
+        .section { padding: 5rem 0; background: var(--bg-primary); }
+        .section-alt { background: var(--bg-secondary); }
+        .section-title { font-family: 'Source Serif 4', Georgia, serif; font-size: 2.2rem; margin-bottom: 0.5rem; color: var(--text-primary); font-weight: 700; letter-spacing: -0.02em; }
+        .section-subtitle { color: var(--text-muted); font-size: 1rem; margin-bottom: 2.5rem; font-weight: 400; }
+        .section-divider { width: 50px; height: 3.5px; background: linear-gradient(90deg, var(--accent-color), #10b981); border-radius: 2px; margin-bottom: 2.5rem; }
+        
+        /* About Section */
         .about-grid { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; }
-        .profile-img-wrapper { position: relative; }
-        .profile-img-wrapper img { width: 200px; height: 200px; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.12); object-fit: cover; }
-        .profile-img-wrapper::after { content: ''; position: absolute; top: 10px; left: 10px; width: 200px; height: 200px; border-radius: 16px; border: 2px solid #6366f1; z-index: -1; opacity: 0.4; }
-        .about-text { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 8px 30px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; }
-        .about-text p { color: #475569; line-height: 1.8; }
-        .about-text a { color: #6366f1; text-decoration: none; font-weight: 500; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
-        .about-text a:hover { border-bottom-color: #6366f1; }
-        .graduation-badge { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; padding: 0.5rem 1rem; background: linear-gradient(135deg, #ede9fe, #e0e7ff); color: #4338ca; border-radius: 8px; font-weight: 600; font-size: 0.9rem; border: 1px solid #c7d2fe; }
+        .profile-img-wrapper { position: relative; cursor: pointer; }
+        .profile-img-wrapper img { 
+            width: 200px; 
+            height: 200px; 
+            border-radius: 16px; 
+            box-shadow: var(--shadow-lg); 
+            object-fit: cover; 
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+        }
+        .profile-img-wrapper::after { content: ''; position: absolute; top: 10px; left: 10px; width: 200px; height: 200px; border-radius: 16px; border: 2px solid var(--accent-color); z-index: -1; opacity: 0.4; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        
+        /* Profile Hover Effect */
+        .profile-img-wrapper:hover img {
+            transform: scale(1.03) rotate(1deg);
+            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.25);
+        }
+        .profile-img-wrapper:hover::after {
+            transform: translate(4px, 4px) rotate(-1deg);
+            opacity: 0.7;
+        }
+
+        .about-text { background: var(--card-bg); padding: 2.5rem; border-radius: 16px; box-shadow: var(--shadow-md); border: 1px solid var(--border-color); }
+        .about-text p { color: var(--text-secondary); line-height: 1.8; }
+        .about-text a { color: var(--accent-color); text-decoration: none; font-weight: 500; border-bottom: 1.5px solid transparent; transition: all 0.3s; }
+        .about-text a:hover { border-bottom-color: var(--accent-color); color: var(--accent-hover); }
+        .graduation-badge { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; padding: 0.5rem 1rem; background: var(--tag-indigo-bg); color: var(--tag-indigo-txt); border-radius: 8px; font-weight: 600; font-size: 0.9rem; border: 1px solid var(--tag-indigo-border); }
+        
         .research-interests { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
-        .tag { padding: 0.45rem 1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 500; transition: transform 0.2s; }
-        .tag:hover { transform: translateY(-1px); }
-        .tag-indigo { background: #eef2ff; color: #4338ca; border: 1px solid #c7d2fe; }
-        .tag-emerald { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
-        .tag-amber { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
-        .tag-rose { background: #fff1f2; color: #9f1239; border: 1px solid #fecdd3; }
-        .tag-sky { background: #f0f9ff; color: #0c4a6e; border: 1px solid #bae6fd; }
-        .tag-violet { background: #f5f3ff; color: #5b21b6; border: 1px solid #ddd6fe; }
-        .pub-category { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.4rem; color: #1e293b; margin: 2.5rem 0 1.5rem 0; font-weight: 600; display: flex; align-items: center; gap: 0.75rem; }
+        .tag { padding: 0.45rem 1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 500; transition: transform 0.2s, box-shadow 0.2s; }
+        .tag:hover { transform: translateY(-1.5px); box-shadow: var(--shadow-sm); }
+        
+        .tag-indigo { background: var(--tag-indigo-bg); color: var(--tag-indigo-txt); border: 1px solid var(--tag-indigo-border); }
+        .tag-emerald { background: var(--tag-emerald-bg); color: var(--tag-emerald-txt); border: 1px solid var(--tag-emerald-border); }
+        .tag-rose { background: var(--tag-rose-bg); color: var(--tag-rose-txt); border: 1px solid var(--tag-rose-border); }
+        .tag-sky { background: var(--tag-sky-bg); color: var(--tag-sky-txt); border: 1px solid var(--tag-sky-border); }
+        .tag-amber { background: var(--tag-amber-bg); color: var(--tag-amber-txt); border: 1px solid var(--tag-amber-border); }
+        .tag-violet { background: var(--tag-violet-bg); color: var(--tag-violet-txt); border: 1px solid var(--tag-violet-border); }
+
+        /* Experience Section & Categories */
+        .pub-category { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.4rem; color: var(--text-primary); margin: 2.5rem 0 1.5rem 0; font-weight: 600; display: flex; align-items: center; gap: 0.75rem; }
         .pub-category-icon { width: 32px; height: 32px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; color: white; flex-shrink: 0; }
         .pub-category-icon.papers { background: linear-gradient(135deg, #6366f1, #4f46e5); }
         .pub-category-icon.patents { background: linear-gradient(135deg, #10b981, #059669); }
-        .publication { background: white; padding: 1.8rem; border-radius: 12px; margin-bottom: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; border-left: 4px solid #6366f1; transition: all 0.3s; }
-        .publication:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left-color: #4f46e5; }
+        
+        .experience-item { background: var(--card-bg); padding: 2rem; border-radius: 16px; margin-bottom: 1.2rem; box-shadow: var(--shadow-md); border: 1px solid var(--border-color); position: relative; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease; }
+        .experience-item.current { border-left: 4px solid #10b981; }
+        .experience-item:hover { transform: translateY(-4px) scale(1.01); box-shadow: var(--shadow-hover); border-color: var(--accent-color); }
+        .experience-item h4 { color: var(--text-primary); margin-bottom: 0.4rem; font-size: 1.1rem; }
+        .experience-meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+        .experience-item .desc { color: var(--text-secondary); margin-top: 0.6rem; font-size: 0.95rem; line-height: 1.7; }
+
+        /* Interactive Filter Bar Component */
+        .filter-bar {
+            display: flex;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            scrollbar-width: none; /* Hide scrollbar on Firefox */
+        }
+        .filter-bar::-webkit-scrollbar {
+            display: none; /* Hide scrollbar on Chrome/Safari */
+        }
+        .filter-btn {
+            background: var(--card-bg);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            padding: 0.55rem 1.3rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .filter-btn:hover {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+            transform: translateY(-1px);
+        }
+        .filter-btn.active {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+        }
+
+        /* Publication Card styling */
+        .publication { background: var(--card-bg); padding: 1.8rem; border-radius: 16px; margin-bottom: 1.2rem; box-shadow: var(--shadow-md); border: 1px solid var(--border-color); border-left: 4px solid var(--accent-color); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease; }
+        .publication:hover { transform: translateY(-4px) scale(1.01); box-shadow: var(--shadow-hover); border-color: var(--accent-color); }
         .publication.wip { border-left-color: #f59e0b; }
         .publication.wip:hover { border-left-color: #d97706; }
         .publication.patent { border-left-color: #10b981; }
         .publication.patent:hover { border-left-color: #059669; }
-        .publication h4 { color: #1e293b; margin-bottom: 0.5rem; line-height: 1.5; font-size: 1.05rem; }
-        .publication h4 a { color: #1e293b; text-decoration: none; transition: color 0.3s; }
-        .publication h4 a:hover { color: #6366f1; }
-        .publication-authors { color: #64748b; margin-bottom: 0.4rem; font-size: 0.95rem; }
-        .publication-authors strong { color: #1e293b; font-weight: 600; }
-        .publication-venue { color: #6366f1; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem; }
-        .publication-desc { color: #64748b; font-size: 0.92rem; line-height: 1.6; margin-top: 0.5rem; }
+        
+        .publication h4 { color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1.5; font-size: 1.05rem; }
+        .publication h4 a { color: var(--text-primary); text-decoration: none; transition: color 0.3s; }
+        .publication h4 a:hover { color: var(--accent-color); }
+        .publication-authors { color: var(--text-muted); margin-bottom: 0.4rem; font-size: 0.95rem; }
+        .publication-authors strong { color: var(--text-primary); font-weight: 600; }
+        .publication-venue { color: var(--accent-color); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem; }
+        .publication-desc { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-top: 0.5rem; }
+        
         .publication-links { margin-top: 1rem; display: flex; gap: 0.6rem; flex-wrap: wrap; }
-        .publication-links a { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 1rem; background: #f1f5f9; color: #475569; text-decoration: none; border-radius: 6px; font-size: 0.82rem; font-weight: 500; transition: all 0.3s; border: 1px solid #e2e8f0; }
-        .publication-links a:hover { background: #6366f1; color: white; border-color: #6366f1; }
+        .publication-links a { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.45rem 1rem; background: var(--bg-primary); color: var(--text-secondary); text-decoration: none; border-radius: 8px; font-size: 0.82rem; font-weight: 500; transition: all 0.3s; border: 1px solid var(--border-color); }
+        .publication-links a:hover { background: var(--accent-color); color: white; border-color: var(--accent-color); transform: translateY(-1px); }
+        
         .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 6px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.6rem; letter-spacing: 0.03em; text-transform: uppercase; }
-        .badge-review { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
-        .badge-accepted { background: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
-        .badge-patent { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
-        .experience-item { background: white; padding: 2rem; border-radius: 12px; margin-bottom: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; position: relative; transition: all 0.3s; }
-        .experience-item.current { border-left: 4px solid #10b981; }
-        .experience-item:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        .experience-item h4 { color: #1e293b; margin-bottom: 0.4rem; font-size: 1.1rem; }
-        .experience-meta { color: #64748b; font-size: 0.9rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
-        .experience-item .desc { color: #64748b; margin-top: 0.6rem; font-size: 0.95rem; line-height: 1.7; }
+        .badge-review { background: var(--tag-amber-bg); color: var(--tag-amber-txt); border: 1px solid var(--tag-amber-border); }
+        .badge-accepted { background: var(--tag-indigo-bg); color: var(--tag-indigo-txt); border: 1px solid var(--tag-indigo-border); }
+        .badge-patent { background: var(--tag-emerald-bg); color: var(--tag-emerald-txt); border: 1px solid var(--tag-emerald-border); }
+
+        /* Projects Section Grid */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.2rem; }
-        .project-card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; transition: all 0.3s; display: flex; flex-direction: column; }
-        .project-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
-        .project-card h4 { color: #1e293b; margin-bottom: 0.6rem; font-size: 1.15rem; }
-        .project-status { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 6px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.8rem; letter-spacing: 0.02em; }
-        .project-status.completed { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
-        .project-status.progress { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
-        .project-card p { color: #64748b; font-size: 0.92rem; line-height: 1.6; }
-        .project-tech { color: #94a3b8; font-size: 0.85rem; margin-top: 0.6rem; }
-        .project-tech strong { color: #64748b; }
+        .project-card { background: var(--card-bg); padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-md); border: 1px solid var(--border-color); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease; display: flex; flex-direction: column; }
+        .project-card:hover { transform: translateY(-4px) scale(1.01); box-shadow: var(--shadow-hover); border-color: var(--accent-color); }
+        .project-card h4 { color: var(--text-primary); margin-bottom: 0.6rem; font-size: 1.15rem; }
+        
+        .project-status { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 6px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.8rem; letter-spacing: 0.02em; max-width: max-content; }
+        .project-status.completed { background: var(--tag-emerald-bg); color: var(--tag-emerald-txt); border: 1px solid var(--tag-emerald-border); }
+        .project-status.progress { background: var(--tag-amber-bg); color: var(--tag-amber-txt); border: 1px solid var(--tag-amber-border); }
+        
+        .project-card p { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; }
+        .project-tech { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.6rem; }
+        .project-tech strong { color: var(--text-secondary); }
         .project-card .publication-links { margin-top: auto; padding-top: 1rem; }
+
+        /* Contact Section */
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        .contact-info { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; }
+        .contact-info { background: var(--card-bg); padding: 2.5rem; border-radius: 16px; box-shadow: var(--shadow-md); border: 1px solid var(--border-color); }
         .contact-item { display: flex; align-items: center; margin-bottom: 1.2rem; font-size: 1rem; gap: 1rem; }
         .contact-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.9rem; color: white; }
         .contact-icon.email { background: linear-gradient(135deg, #6366f1, #4f46e5); }
         .contact-icon.location { background: linear-gradient(135deg, #10b981, #059669); }
         .contact-icon.institution { background: linear-gradient(135deg, #f59e0b, #d97706); }
-        .contact-item a { color: #6366f1; text-decoration: none; font-weight: 500; }
-        .contact-item a:hover { text-decoration: underline; }
+        .contact-item a { color: var(--accent-color); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .contact-item a:hover { text-decoration: underline; color: var(--accent-hover); }
+        
         .social-links { display: flex; flex-direction: column; gap: 0.8rem; }
-        .social-link { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; background: white; border-radius: 12px; text-decoration: none; color: #334155; font-weight: 500; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; transition: all 0.3s; }
-        .social-link:hover { transform: translateX(4px); box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-color: #c7d2fe; }
+        .social-link { 
+            display: flex; 
+            align-items: center; 
+            gap: 1rem; 
+            padding: 1rem 1.5rem; 
+            background: var(--card-bg); 
+            border-radius: 16px; 
+            text-decoration: none; 
+            color: var(--text-secondary); 
+            font-weight: 500; 
+            box-shadow: var(--shadow-md); 
+            border: 1px solid var(--border-color); 
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease, color 0.4s ease; 
+        }
+        .social-link:hover { transform: translateX(6px); box-shadow: var(--shadow-hover); border-color: var(--accent-color); color: var(--text-primary); }
         .social-link i { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; }
         .social-link .fa-linkedin { background: #0077b5; }
         .social-link .fa-file-pdf { background: #e74c3c; }
         .social-link .fa-graduation-cap { background: #4285f4; }
         .social-link .fa-github { background: #24292e; }
-        .social-link span { font-size: 0.9rem; color: #94a3b8; font-weight: 400; margin-left: auto; }
-        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 3rem 2rem; border-top: 2px solid #6366f1; }
+        .social-link span { font-size: 0.9rem; color: var(--text-muted); font-weight: 400; margin-left: auto; transition: color 0.3s; }
+        .social-link:hover span { color: var(--text-secondary); }
+
+        /* Footer */
+        footer { background: var(--bg-secondary); color: var(--text-muted); text-align: center; padding: 3.5rem 2rem; border-top: 1px solid var(--border-color); }
         footer p { font-size: 0.9rem; }
-        footer .footer-name { color: #e2e8f0; font-weight: 600; }
+        footer .footer-name { color: var(--text-primary); font-weight: 600; }
+
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Responsive Media Queries */
         @media (max-width: 768px) {
             .about-grid { grid-template-columns: 1fr; text-align: center; }
             .profile-img-wrapper { display: flex; justify-content: center; }
@@ -142,12 +407,24 @@
             .contact-grid { grid-template-columns: 1fr; }
             .projects-grid { grid-template-columns: 1fr; }
         }
-        .nav-toggle { display: none; background: none; border: none; color: white; font-size: 1.4rem; cursor: pointer; padding: 0.5rem; }
+
+        .nav-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.4rem; cursor: pointer; padding: 0.5rem; }
+        
         @media (max-width: 640px) {
             .nav-toggle { display: block; }
-            .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #0f172a; flex-direction: column; border-top: 1px solid #1e293b; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+            .nav-links { 
+                display: none; 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                right: 0; 
+                background: var(--bg-secondary); 
+                flex-direction: column; 
+                border-top: 1px solid var(--border-color); 
+                box-shadow: var(--shadow-lg); 
+            }
             .nav-links.open { display: flex; }
-            .nav-links a { padding: 1rem 2rem; border-bottom: 1px solid #1e293b; }
+            .nav-links a { padding: 1rem 2rem; border-bottom: 1px solid var(--border-color); }
             .nav-links a::after { display: none; }
             .nav-content { position: relative; }
         }
@@ -156,16 +433,21 @@
 <body>
     <nav class="navbar">
         <div class="nav-content">
-            <a href="#" class="nav-brand">Jad <span>Al Aaraj</span></a>
-            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
+            <a href="#" class="nav-brand">Jad <span>Aaraj</span></a>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#publications" class="nav-link">Publications</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -173,7 +455,7 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-label">Software Engineer @ Google &middot; Ph.D., UC Irvine 2026</div>
-            <h1>Jad Al Aaraj</h1>
+            <h1>Jad Aaraj</h1>
             <p>Software Engineer at Google</p>
             <p style="font-size: 0.95rem; opacity: 0.7; margin-top: 0.3rem;">Ph.D. in Electrical and Computer Engineering &middot; University of California, Irvine</p>
             <div class="hero-buttons">
@@ -190,8 +472,8 @@
             <h2 class="section-title">About Me</h2>
             <div class="section-divider"></div>
             <div class="about-grid">
-                <div class="profile-img-wrapper">
-                    <img src="profile_jad.png" alt="Jad Al Aaraj">
+                <div class="profile-img-wrapper" title="Click to rotate profile image!">
+                    <img src="profile_jad.png" alt="Jad Aaraj">
                 </div>
                 <div class="about-text">
                     <p>I am a Software Engineer at <strong>Google</strong>. I completed my Ph.D. in the <a href="https://engineering.uci.edu/dept/eecs" target="_blank">EECS department</a> at the University of California, Irvine in June 2026. I received my B.E. in Computer and Communications Engineering from the American University of Beirut in 2020 and my M.Sc. in Electrical Engineering from UC Irvine in 2023.</p>
@@ -202,7 +484,7 @@
                         <i class="fas fa-graduation-cap"></i> Ph.D. conferred: June 2026
                     </div>
 
-                    <h3 style="margin-top: 2rem; margin-bottom: 0.8rem; color: #1e293b; font-size: 1.1rem;">Research Interests</h3>
+                    <h3 style="margin-top: 2rem; margin-bottom: 0.8rem; color: var(--text-primary); font-size: 1.1rem;">Research Interests</h3>
                     <div class="research-interests">
                         <span class="tag tag-emerald">Computer Networks</span>
                         <span class="tag tag-indigo">Internet-of-Things (IoT)</span>
@@ -230,7 +512,7 @@
             <div class="experience-item current">
                 <h4>Software Engineer</h4>
                 <div class="experience-meta">
-                    <strong style="color: #1e293b;">Google</strong> &middot; Sunnyvale, CA  &middot; June 2026 &ndash; Present
+                    <strong style="color: var(--text-primary);">Google</strong> &middot; Sunnyvale, CA  &middot; June 2026 &ndash; Present
                     <span class="project-status completed" style="margin: 0;">Current</span>
                 </div>
             </div>
@@ -238,7 +520,7 @@
             <div class="experience-item">
                 <h4>Software Engineer PhD Intern</h4>
                 <div class="experience-meta">
-                    <strong style="color: #1e293b;">Cisco Systems</strong> &middot; San Jose, CA &middot; June 2023 &ndash; September 2023
+                    <strong style="color: var(--text-primary);">Cisco Systems</strong> &middot; San Jose, CA &middot; June 2023 &ndash; September 2023
                 </div>
                 <p class="desc">Developed ML models for detecting access points in real-world deployments.</p>
             </div>
@@ -246,7 +528,7 @@
             <div class="experience-item">
                 <h4>Software Engineer PhD Intern</h4>
                 <div class="experience-meta">
-                    <strong style="color: #1e293b;">Cisco Systems</strong> &middot; San Jose, CA &middot; June 2022 &ndash; September 2022
+                    <strong style="color: var(--text-primary);">Cisco Systems</strong> &middot; San Jose, CA &middot; June 2022 &ndash; September 2022
                 </div>
                 <p class="desc">Continued work on light-based communication systems for device maintenance.</p>
             </div>
@@ -254,7 +536,7 @@
             <div class="experience-item">
                 <h4>Software Engineer PhD Intern</h4>
                 <div class="experience-meta">
-                    <strong style="color: #1e293b;">Cisco Systems</strong> &middot; San Jose, CA &middot; June 2021 &ndash; September 2021
+                    <strong style="color: var(--text-primary);">Cisco Systems</strong> &middot; San Jose, CA &middot; June 2021 &ndash; September 2021
                 </div>
                 <p class="desc">Developed system for decoding light-based messages, leading to U.S. Patent 11935299.</p>
                 <div class="publication-links" style="margin-top: 0.8rem;">
@@ -265,7 +547,7 @@
             <div class="experience-item">
                 <h4>Software Engineer Intern</h4>
                 <div class="experience-meta">
-                    <strong style="color: #1e293b;">Cisco Systems</strong> &middot; Beirut, Lebanon &middot; July 2019 &ndash; September 2020
+                    <strong style="color: var(--text-primary);">Cisco Systems</strong> &middot; Beirut, Lebanon &middot; July 2019 &ndash; September 2020
                 </div>
                 <p class="desc">1. Built a 3D Wireless Analyzer using Three.js, GLSL shaders, and GPGPU to visualize RF heatmaps and network coverage in real-time, significantly enhancing observability tools.</p>
                 <p class="desc">2. Extended Ontop OBDA system to support multiple database types including Gremlin graph databases.</p>
@@ -279,83 +561,101 @@
             <div class="experience-item">
                 <h4>Teaching Assistant &mdash; Organization of Digital Computers Laboratory (EECS 112L)</h4>
                 <div class="experience-meta">
-                    <strong style="color: #1e293b;">UC Irvine</strong> &middot; Jan&ndash;Mar 2022, Oct&ndash;Dec 2022
+                    <strong style="color: var(--text-primary);">UC Irvine</strong> &middot; Jan&ndash;Mar 2022, Oct&ndash;Dec 2022
                 </div>
                 <p class="desc">Assisted students with digital logic design, computer organization concepts, and laboratory assignments.</p>
             </div>
         </div>
     </div>
 
-    <div id="publications" class="section section">
+    <div id="publications" class="section">
         <div class="container">
             <h2 class="section-title">Publications &amp; Patents</h2>
             <div class="section-divider"></div>
 
-            <div class="pub-category">
-                <span class="pub-category-icon patents"><i class="fas fa-certificate"></i></span>
-                Patents
+            <!-- Publications Interactive Filters -->
+            <div class="filter-bar" id="pub-filters">
+                <button class="filter-btn active" data-filter="all">All Items</button>
+                <button class="filter-btn" data-filter="patent">Patents</button>
+                <button class="filter-btn" data-filter="paper">Papers</button>
+                <button class="filter-btn" data-filter="wip">Under Review</button>
             </div>
 
-            <div class="publication patent">
-                <span class="badge badge-patent">U.S. Patent</span>
-                <h4><a href="https://patents.justia.com/patent/11935299" target="_blank">Decoding light-based messages to support device maintenance</a></h4>
-                <p class="publication-authors">Samer Salam (Beirut), <strong>Jad Al Aaraj (Irvine, CA)</strong></p>
-                <p class="publication-venue">U.S. Patent 11935299 &mdash; March 19, 2024</p>
-                <p class="publication-desc">A method for decoding messages transmitted through blinking LED light sources using real-time video processing.</p>
-                <div class="publication-links">
-                    <a href="https://patents.justia.com/patent/11935299" target="_blank"><i class="fas fa-external-link-alt"></i> View Patent</a>
+            <div class="publications-list">
+                
+                <!-- Patents Header -->
+                <div class="pub-section-header" data-category="patent">
+                    <div class="pub-category">
+                        <span class="pub-category-icon patents"><i class="fas fa-certificate"></i></span>
+                        Patents
+                    </div>
                 </div>
-            </div>
 
-            <div class="pub-category">
-                <span class="pub-category-icon papers"><i class="fas fa-file-alt"></i></span>
-                Published &amp; Under Review
-            </div>
-
-            <div class="publication wip">
-                <span class="badge badge-review">Under Review</span>
-                <h4>BlindSpot: Enabling Bystander-Controlled Privacy Signaling for Camera Enabled Devices</h4>
-                <p class="publication-authors"><strong>Jad Al Aaraj</strong> and Athina Markopoulou</p>
-                <p class="publication-venue">Under Review</p>
-                <p class="publication-desc">A system that enables bystanders to signal their privacy preferences to camera-enabled devices in their vicinity.</p>
-                <div class="publication-links">
-                    <a href="https://arxiv.org/abs/2512.14746" target="_blank"><i class="fas fa-external-link-alt"></i> arXiv</a>
-                    <a href="https://athinagroup.eng.uci.edu/projects/xrprivacy/#blindspot" target="_blank"><i class="fas fa-globe"></i> Project Page</a>
+                <div class="publication patent" data-category="patent">
+                    <span class="badge badge-patent">U.S. Patent</span>
+                    <h4><a href="https://patents.justia.com/patent/11935299" target="_blank">Decoding light-based messages to support device maintenance</a></h4>
+                    <p class="publication-authors">Samer Salam (Beirut), <strong>Jad Aaraj (Irvine, CA)</strong></p>
+                    <p class="publication-venue">U.S. Patent 11935299 &mdash; March 19, 2024</p>
+                    <p class="publication-desc">A method for decoding messages transmitted through blinking LED light sources using real-time video processing.</p>
+                    <div class="publication-links">
+                        <a href="https://patents.justia.com/patent/11935299" target="_blank"><i class="fas fa-external-link-alt"></i> View Patent</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="publication">
-                <h4><a href="https://doi.org/10.1145/3833082" target="_blank">VBIT: Towards Enhancing Privacy Control Over IoT Devices</a></h4>
-                <p class="publication-authors"><strong>Jad Al Aaraj</strong>, Olivia Figueira, Tu Le, Isabela Figueira, Rahmadi Trimananda, Athina Markopoulou</p>
-                <p class="publication-venue">ACM Transactions on Internet of Things (TIOT)</p>
-                <p class="publication-desc">An interactive system combining Mixed Reality and web applications to help users identify and manage data collection by IoT devices in shared spaces.</p>
-                <div class="publication-links">
-                    <a href="https://doi.org/10.1145/3833082" target="_blank"><i class="fas fa-link"></i> DOI</a>
-                    <a href="https://dl.acm.org/doi/pdf/10.1145/3833082" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
-                <a href="https://athinagroup.eng.uci.edu/iot-privacy/#vbit" target="_blank"><i class="fas fa-globe"></i> Project Page</a>
+                <!-- Published Papers Header -->
+                <div class="pub-section-header" data-category="paper wip">
+                    <div class="pub-category">
+                        <span class="pub-category-icon papers"><i class="fas fa-file-alt"></i></span>
+                        Published &amp; Under Review
+                    </div>
                 </div>
-            </div>
 
-            <div class="publication">
-                <h4><a href="https://doi.org/10.1145/3704413.3765296" target="_blank">BystandARIA: Enabling AR Bystander Privacy using LEDs</a></h4>
-                <p class="publication-authors"><strong>Jad Al Aaraj</strong> and Athina Markopoulou</p>
-                <p class="publication-venue">ACM MobiHoc '25 &mdash; Houston, TX, October 2025</p>
-                <p class="publication-desc">A novel approach to protect bystander privacy in augmented reality environments using LED-based signaling.</p>
-                <div class="publication-links">
-                    <a href="https://doi.org/10.1145/3704413.3765296" target="_blank"><i class="fas fa-link"></i> DOI</a>
-                    <a href="https://dl.acm.org/doi/pdf/10.1145/3704413.3765296" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                <div class="publication wip" data-category="wip">
+                    <span class="badge badge-review">Under Review</span>
+                    <h4>BlindSpot: Enabling Bystander-Controlled Privacy Signaling for Camera Enabled Devices</h4>
+                    <p class="publication-authors"><strong>Jad Aaraj</strong> and Athina Markopoulou</p>
+                    <p class="publication-venue">Under Review</p>
+                    <p class="publication-desc">A system that enables bystanders to signal their privacy preferences to camera-enabled devices in their vicinity.</p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/abs/2512.14746" target="_blank"><i class="fas fa-external-link-alt"></i> arXiv</a>
+                        <a href="https://athinagroup.eng.uci.edu/projects/xrprivacy/#blindspot" target="_blank"><i class="fas fa-globe"></i> Project Page</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="publication">
-                <h4><a href="https://petsymposium.org/popets/2022/popets-2022-0088.pdf" target="_blank">FingerprinTV: Fingerprinting Smart TV Apps</a></h4>
-                <p class="publication-authors">J. Varmarken, <strong>Jad Al Aaraj</strong>, R. Trimananda, A. Markopoulou</p>
-                <p class="publication-venue">PETS 2022 &mdash; Sydney, Australia, July 2022</p>
-                <p class="publication-desc">A system for fingerprinting and identifying smart TV applications through network traffic analysis.</p>
-                <div class="publication-links">
-                    <a href="https://doi.org/10.56553/popets-2022-0088" target="_blank"><i class="fas fa-link"></i> DOI</a>
-                    <a href="https://petsymposium.org/popets/2022/popets-2022-0088.pdf" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                <div class="publication" data-category="paper">
+                    <h4><a href="https://doi.org/10.1145/3833082" target="_blank">VBIT: Towards Enhancing Privacy Control Over IoT Devices</a></h4>
+                    <p class="publication-authors"><strong>Jad Aaraj</strong>, Olivia Figueira, Tu Le, Isabela Figueira, Rahmadi Trimananda, Athina Markopoulou</p>
+                    <p class="publication-venue">ACM Transactions on Internet of Things (TIOT)</p>
+                    <p class="publication-desc">An interactive system combining Mixed Reality and web applications to help users identify and manage data collection by IoT devices in shared spaces.</p>
+                    <div class="publication-links">
+                        <a href="https://doi.org/10.1145/3833082" target="_blank"><i class="fas fa-link"></i> DOI</a>
+                        <a href="https://dl.acm.org/doi/pdf/10.1145/3833082" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                        <a href="https://athinagroup.eng.uci.edu/iot-privacy/#vbit" target="_blank"><i class="fas fa-globe"></i> Project Page</a>
+                    </div>
                 </div>
+
+                <div class="publication" data-category="paper">
+                    <h4><a href="https://doi.org/10.1145/3704413.3765296" target="_blank">BystandARIA: Enabling AR Bystander Privacy using LEDs</a></h4>
+                    <p class="publication-authors"><strong>Jad Aaraj</strong> and Athina Markopoulou</p>
+                    <p class="publication-venue">ACM MobiHoc '25 &mdash; Houston, TX, October 2025</p>
+                    <p class="publication-desc">A novel approach to protect bystander privacy in augmented reality environments using LED-based signaling.</p>
+                    <div class="publication-links">
+                        <a href="https://doi.org/10.1145/3704413.3765296" target="_blank"><i class="fas fa-link"></i> DOI</a>
+                        <a href="https://dl.acm.org/doi/pdf/10.1145/3704413.3765296" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                    </div>
+                </div>
+
+                <div class="publication" data-category="paper">
+                    <h4><a href="https://petsymposium.org/popets/2022/popets-2022-0088.pdf" target="_blank">FingerprinTV: Fingerprinting Smart TV Apps</a></h4>
+                    <p class="publication-authors">J. Varmarken, <strong>Jad Aaraj</strong>, R. Trimananda, A. Markopoulou</p>
+                    <p class="publication-venue">PETS 2022 &mdash; Sydney, Australia, July 2022</p>
+                    <p class="publication-desc">A system for fingerprinting and identifying smart TV applications through network traffic analysis.</p>
+                    <div class="publication-links">
+                        <a href="https://doi.org/10.56553/popets-2022-0088" target="_blank"><i class="fas fa-link"></i> DOI</a>
+                        <a href="https://petsymposium.org/popets/2022/popets-2022-0088.pdf" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -366,9 +666,16 @@
             <p class="section-subtitle">Research prototypes, engineering tools, and side projects</p>
             <div class="section-divider"></div>
 
+            <!-- Projects Interactive Filters -->
+            <div class="filter-bar" id="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+                <button class="filter-btn" data-filter="progress">Active/In Progress</button>
+            </div>
+
             <div class="projects-grid">
 
-                <div class="project-card">
+                <div class="project-card" data-status="completed">
                     <h4>VBIT: Visualizing IoT Trackers</h4>
                     <span class="project-status completed">Accepted &mdash; ACM TIOT</span>
                     <p>An interactive MR and web-based system that enables users to identify and manage data collection by IoT devices through network traffic analysis.</p>
@@ -381,7 +688,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-status="progress">
                     <h4>BlindSpot: Bystander Privacy System</h4>
                     <span class="project-status progress">Under Review</span>
                     <p>A system that allows bystanders to signal their privacy preferences to camera-enabled devices, enabling privacy-aware recording and data collection.</p>
@@ -392,14 +699,14 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-status="progress">
                     <h4>LLM-Powered Network Privacy Auditor</h4>
                     <span class="project-status progress">Starting Soon</span>
                     <p>A tool that translates raw network traffic logs into human-readable privacy reports using LLMs, backed by a knowledge base of tracking domains and protocols.</p>
                     <p class="project-tech"><strong>Stack:</strong> Python, LlamaIndex, LangChain, LangGraph</p>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-status="completed">
                     <h4>BystandARIA: AR Bystander Privacy</h4>
                     <span class="project-status completed">Published</span>
                     <p>A novel LED-based signaling system that enables bystander privacy protection in augmented reality environments.</p>
@@ -407,14 +714,14 @@
                     <p class="project-tech"><strong>Venue:</strong> ACM MobiHoc '25</p>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-status="progress">
                     <h4>Amazon Alexa Privacy Analysis</h4>
                     <span class="project-status progress">In Progress</span>
                     <p>Analyzing the advertising ecosystem of Amazon Alexa devices to understand data collection practices and privacy implications.</p>
                     <p class="project-tech"><strong>Stack:</strong> Python, Network Analysis</p>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-status="completed">
                     <h4>ML Access Point Detection</h4>
                     <span class="project-status completed">Completed</span>
                     <p>Trained a machine learning model to detect Cisco Access Points in real-world environments using computer vision techniques.</p>
@@ -422,7 +729,7 @@
                     <p class="project-tech"><strong>Context:</strong> Cisco Internship (2023)</p>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-status="completed">
                     <h4>Decoding Light-Based Messages</h4>
                     <span class="project-status completed">Patent Granted</span>
                     <p>Developed a system using real-time video to detect and decode messages transmitted by blinking LED light sources for device maintenance.</p>
@@ -432,7 +739,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-status="completed">
                     <h4>Cisco Wireless 3D Analyzer</h4>
                     <span class="project-status completed">Completed</span>
                     <p>Created 3D wireless heat-maps for network visualization using advanced graphics programming and GPU computation.</p>
@@ -442,7 +749,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-status="completed">
                     <h4>VKG to Database (Ontop Extension)</h4>
                     <span class="project-status completed">Completed</span>
                     <p>Extended the open-source OBDA system Ontop to support multiple database types simultaneously, including Gremlin graph databases.</p>
@@ -465,29 +772,29 @@
                     <div class="contact-item">
                         <div class="contact-icon email"><i class="fas fa-envelope"></i></div>
                         <div>
-                            <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 2px;">Email</div>
+                            <div style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 2px;">Email</div>
                             <a href="mailto:jalaaraj@uci.edu">jalaaraj@uci.edu</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon location"><i class="fas fa-map-marker-alt"></i></div>
                         <div>
-                            <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 2px;">Location</div>
-                            <span style="color: #334155;">California, USA</span>
+                            <div style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 2px;">Location</div>
+                            <span style="color: var(--text-secondary);">California, USA</span>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon institution"><i class="fas fa-building"></i></div>
                         <div>
-                            <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 2px;">Current Role</div>
-                            <span style="color: #334155;">Software Engineer, Google</span>
+                            <div style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 2px;">Current Role</div>
+                            <span style="color: var(--text-secondary);">Software Engineer, Google</span>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon institution" style="background: linear-gradient(135deg, #6366f1, #4f46e5);"><i class="fas fa-university"></i></div>
                         <div>
-                            <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 2px;">Ph.D. Alma Mater</div>
-                            <span style="color: #334155;">University of California, Irvine</span>
+                            <div style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 2px;">Ph.D. Alma Mater</div>
+                            <span style="color: var(--text-secondary);">University of California, Irvine</span>
                         </div>
                     </div>
                 </div>
@@ -519,8 +826,127 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 <span class="footer-name">Jad Al Aaraj</span>. All rights reserved.</p>
+        <p>&copy; 2026 <span class="footer-name">Jad Aaraj</span>. All rights reserved.</p>
         <p style="margin-top: 0.5rem; font-size: 0.85rem;">Last updated August 2026</p>
     </footer>
+
+    <!-- Interactive Features Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme Management
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            
+            const updateIcon = () => {
+                const isDark = document.documentElement.classList.contains('dark');
+                themeToggleBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            };
+
+            // Initialize correct icon on load
+            updateIcon();
+
+            themeToggleBtn.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                const isDark = document.documentElement.classList.contains('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                updateIcon();
+            });
+
+            // Navigation Observer (Highlight Active Nav Link)
+            const sections = document.querySelectorAll('section, div.section');
+            const navLinks = document.querySelectorAll('.nav-links .nav-link');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-30% 0px -50% 0px', // Triggers as sections pass through mid-viewport
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            } else {
+                                link.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                if (section.getAttribute('id')) {
+                    observer.observe(section);
+                }
+            });
+
+            // Publications Dynamic Filtering Logic
+            const pubFilters = document.querySelectorAll('#pub-filters .filter-btn');
+            const publications = document.querySelectorAll('.publication');
+            const pubHeaders = document.querySelectorAll('.pub-section-header');
+
+            pubFilters.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    pubFilters.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const filterValue = btn.getAttribute('data-filter');
+                    
+                    // Show/hide cards
+                    publications.forEach(pub => {
+                        const category = pub.getAttribute('data-category');
+                        if (filterValue === 'all') {
+                            pub.style.display = 'block';
+                        } else if (filterValue === 'paper' && (category === 'paper' || category === 'wip')) {
+                            pub.style.display = 'block';
+                        } else if (category === filterValue) {
+                            pub.style.display = 'block';
+                        } else {
+                            pub.style.display = 'none';
+                        }
+                    });
+                    
+                    // Show/hide headers dynamically based on filter values
+                    pubHeaders.forEach(header => {
+                        const headerCategories = header.getAttribute('data-category').split(' ');
+                        if (filterValue === 'all') {
+                            header.style.display = 'block';
+                        } else if (filterValue === 'paper' && headerCategories.includes('paper')) {
+                            header.style.display = 'block';
+                        } else if (filterValue === 'wip' && headerCategories.includes('wip')) {
+                            header.style.display = 'block';
+                        } else if (headerCategories.includes(filterValue)) {
+                            header.style.display = 'block';
+                        } else {
+                            header.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Projects Dynamic Filtering Logic
+            const projectFilters = document.querySelectorAll('#project-filters .filter-btn');
+            const projects = document.querySelectorAll('.project-card');
+
+            projectFilters.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    projectFilters.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const filterValue = btn.getAttribute('data-filter');
+                    projects.forEach(project => {
+                        const status = project.getAttribute('data-status');
+                        if (filterValue === 'all' || status === filterValue) {
+                            project.style.display = 'flex';
+                        } else {
+                            project.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
